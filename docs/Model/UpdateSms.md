@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **phone_id** | **string** |  | 
 **detail_id** | **string** |  | 
-**message** | [**Text**](Text.md) |  | 
+**message** | **string** |  | 
 **draft** | **bool** |  | [optional] 
 **schedule** | **int** |  | [optional] 
 

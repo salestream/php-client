@@ -60,10 +60,10 @@ class CreateLead implements ModelInterface, ArrayAccess
         'company' => 'string',
         'url' => 'string',
         'description' => 'string',
+        'status' => 'string',
         'contacts' => '\OpenAPI\Client\Model\CreateLeadContacts[]',
         'addresses' => '\OpenAPI\Client\Model\CreateLeadAddresses[]',
-        'custom_fields' => 'object',
-        'status' => 'string'
+        'custom_fields' => 'object'
     ];
 
     /**
@@ -75,10 +75,10 @@ class CreateLead implements ModelInterface, ArrayAccess
         'company' => null,
         'url' => null,
         'description' => null,
+        'status' => null,
         'contacts' => null,
         'addresses' => null,
-        'custom_fields' => null,
-        'status' => null
+        'custom_fields' => null
     ];
 
     /**
@@ -111,10 +111,10 @@ class CreateLead implements ModelInterface, ArrayAccess
         'company' => 'company',
         'url' => 'url',
         'description' => 'description',
+        'status' => 'status',
         'contacts' => 'contacts',
         'addresses' => 'addresses',
-        'custom_fields' => 'custom_fields',
-        'status' => 'status'
+        'custom_fields' => 'custom_fields'
     ];
 
     /**
@@ -126,10 +126,10 @@ class CreateLead implements ModelInterface, ArrayAccess
         'company' => 'setCompany',
         'url' => 'setUrl',
         'description' => 'setDescription',
+        'status' => 'setStatus',
         'contacts' => 'setContacts',
         'addresses' => 'setAddresses',
-        'custom_fields' => 'setCustomFields',
-        'status' => 'setStatus'
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -141,10 +141,10 @@ class CreateLead implements ModelInterface, ArrayAccess
         'company' => 'getCompany',
         'url' => 'getUrl',
         'description' => 'getDescription',
+        'status' => 'getStatus',
         'contacts' => 'getContacts',
         'addresses' => 'getAddresses',
-        'custom_fields' => 'getCustomFields',
-        'status' => 'getStatus'
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -210,10 +210,10 @@ class CreateLead implements ModelInterface, ArrayAccess
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['contacts'] = isset($data['contacts']) ? $data['contacts'] : null;
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -316,6 +316,30 @@ class CreateLead implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
      * Gets contacts
      *
      * @return \OpenAPI\Client\Model\CreateLeadContacts[]|null
@@ -383,30 +407,6 @@ class CreateLead implements ModelInterface, ArrayAccess
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
 
         return $this;
     }

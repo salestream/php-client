@@ -678,38 +678,30 @@ class WebhookApi
     /**
      * Operation webhookPost
      *
-     * @param  string $url url (required)
-     * @param  string $fallback_url fallback_url (optional)
-     * @param  string $error_url error_url (optional)
-     * @param  int $timeout timeout (optional)
-     * @param  int $retry_attempts retry_attempts (optional)
+     * @param  \OpenAPI\Client\Model\CreateWebhook $create_webhook create_webhook (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function webhookPost($url, $fallback_url = null, $error_url = null, $timeout = null, $retry_attempts = null)
+    public function webhookPost($create_webhook = null)
     {
-        list($response) = $this->webhookPostWithHttpInfo($url, $fallback_url, $error_url, $timeout, $retry_attempts);
+        list($response) = $this->webhookPostWithHttpInfo($create_webhook);
         return $response;
     }
 
     /**
      * Operation webhookPostWithHttpInfo
      *
-     * @param  string $url (required)
-     * @param  string $fallback_url (optional)
-     * @param  string $error_url (optional)
-     * @param  int $timeout (optional)
-     * @param  int $retry_attempts (optional)
+     * @param  \OpenAPI\Client\Model\CreateWebhook $create_webhook (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhookPostWithHttpInfo($url, $fallback_url = null, $error_url = null, $timeout = null, $retry_attempts = null)
+    public function webhookPostWithHttpInfo($create_webhook = null)
     {
-        $request = $this->webhookPostRequest($url, $fallback_url, $error_url, $timeout, $retry_attempts);
+        $request = $this->webhookPostRequest($create_webhook);
 
         try {
             $options = $this->createHttpClientOption();
@@ -829,18 +821,14 @@ class WebhookApi
      *
      * 
      *
-     * @param  string $url (required)
-     * @param  string $fallback_url (optional)
-     * @param  string $error_url (optional)
-     * @param  int $timeout (optional)
-     * @param  int $retry_attempts (optional)
+     * @param  \OpenAPI\Client\Model\CreateWebhook $create_webhook (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookPostAsync($url, $fallback_url = null, $error_url = null, $timeout = null, $retry_attempts = null)
+    public function webhookPostAsync($create_webhook = null)
     {
-        return $this->webhookPostAsyncWithHttpInfo($url, $fallback_url, $error_url, $timeout, $retry_attempts)
+        return $this->webhookPostAsyncWithHttpInfo($create_webhook)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -853,19 +841,15 @@ class WebhookApi
      *
      * 
      *
-     * @param  string $url (required)
-     * @param  string $fallback_url (optional)
-     * @param  string $error_url (optional)
-     * @param  int $timeout (optional)
-     * @param  int $retry_attempts (optional)
+     * @param  \OpenAPI\Client\Model\CreateWebhook $create_webhook (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookPostAsyncWithHttpInfo($url, $fallback_url = null, $error_url = null, $timeout = null, $retry_attempts = null)
+    public function webhookPostAsyncWithHttpInfo($create_webhook = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->webhookPostRequest($url, $fallback_url, $error_url, $timeout, $retry_attempts);
+        $request = $this->webhookPostRequest($create_webhook);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -904,23 +888,13 @@ class WebhookApi
     /**
      * Create request for operation 'webhookPost'
      *
-     * @param  string $url (required)
-     * @param  string $fallback_url (optional)
-     * @param  string $error_url (optional)
-     * @param  int $timeout (optional)
-     * @param  int $retry_attempts (optional)
+     * @param  \OpenAPI\Client\Model\CreateWebhook $create_webhook (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function webhookPostRequest($url, $fallback_url = null, $error_url = null, $timeout = null, $retry_attempts = null)
+    protected function webhookPostRequest($create_webhook = null)
     {
-        // verify the required parameter 'url' is set
-        if ($url === null || (is_array($url) && count($url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $url when calling webhookPost'
-            );
-        }
 
         $resourcePath = '/webhook';
         $formParams = [];
@@ -931,28 +905,11 @@ class WebhookApi
 
 
 
-        // form params
-        if ($url !== null) {
-            $formParams['url'] = ObjectSerializer::toFormValue($url);
-        }
-        // form params
-        if ($fallback_url !== null) {
-            $formParams['fallback_url'] = ObjectSerializer::toFormValue($fallback_url);
-        }
-        // form params
-        if ($error_url !== null) {
-            $formParams['error_url'] = ObjectSerializer::toFormValue($error_url);
-        }
-        // form params
-        if ($timeout !== null) {
-            $formParams['timeout'] = ObjectSerializer::toFormValue($timeout);
-        }
-        // form params
-        if ($retry_attempts !== null) {
-            $formParams['retry_attempts'] = ObjectSerializer::toFormValue($retry_attempts);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_webhook)) {
+            $_tempBody = $create_webhook;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -961,7 +918,7 @@ class WebhookApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -1023,32 +980,30 @@ class WebhookApi
     /**
      * Operation webhookRegisterPost
      *
-     * @param  string $resource resource (optional)
-     * @param  string[] $fields fields (optional)
+     * @param  \OpenAPI\Client\Model\RegisterResource $register_resource register_resource (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function webhookRegisterPost($resource = null, $fields = null)
+    public function webhookRegisterPost($register_resource = null)
     {
-        list($response) = $this->webhookRegisterPostWithHttpInfo($resource, $fields);
+        list($response) = $this->webhookRegisterPostWithHttpInfo($register_resource);
         return $response;
     }
 
     /**
      * Operation webhookRegisterPostWithHttpInfo
      *
-     * @param  string $resource (optional)
-     * @param  string[] $fields (optional)
+     * @param  \OpenAPI\Client\Model\RegisterResource $register_resource (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhookRegisterPostWithHttpInfo($resource = null, $fields = null)
+    public function webhookRegisterPostWithHttpInfo($register_resource = null)
     {
-        $request = $this->webhookRegisterPostRequest($resource, $fields);
+        $request = $this->webhookRegisterPostRequest($register_resource);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1168,15 +1123,14 @@ class WebhookApi
      *
      * 
      *
-     * @param  string $resource (optional)
-     * @param  string[] $fields (optional)
+     * @param  \OpenAPI\Client\Model\RegisterResource $register_resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookRegisterPostAsync($resource = null, $fields = null)
+    public function webhookRegisterPostAsync($register_resource = null)
     {
-        return $this->webhookRegisterPostAsyncWithHttpInfo($resource, $fields)
+        return $this->webhookRegisterPostAsyncWithHttpInfo($register_resource)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1189,16 +1143,15 @@ class WebhookApi
      *
      * 
      *
-     * @param  string $resource (optional)
-     * @param  string[] $fields (optional)
+     * @param  \OpenAPI\Client\Model\RegisterResource $register_resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookRegisterPostAsyncWithHttpInfo($resource = null, $fields = null)
+    public function webhookRegisterPostAsyncWithHttpInfo($register_resource = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->webhookRegisterPostRequest($resource, $fields);
+        $request = $this->webhookRegisterPostRequest($register_resource);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1237,13 +1190,12 @@ class WebhookApi
     /**
      * Create request for operation 'webhookRegisterPost'
      *
-     * @param  string $resource (optional)
-     * @param  string[] $fields (optional)
+     * @param  \OpenAPI\Client\Model\RegisterResource $register_resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function webhookRegisterPostRequest($resource = null, $fields = null)
+    protected function webhookRegisterPostRequest($register_resource = null)
     {
 
         $resourcePath = '/webhook/register';
@@ -1255,16 +1207,11 @@ class WebhookApi
 
 
 
-        // form params
-        if ($resource !== null) {
-            $formParams['resource'] = ObjectSerializer::toFormValue($resource);
-        }
-        // form params
-        if ($fields !== null) {
-            $formParams['fields'] = ObjectSerializer::toFormValue($fields);
-        }
         // body params
         $_tempBody = null;
+        if (isset($register_resource)) {
+            $_tempBody = $register_resource;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1273,7 +1220,7 @@ class WebhookApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -1335,30 +1282,30 @@ class WebhookApi
     /**
      * Operation webhookUnregisterPost
      *
-     * @param  string $resource resource (optional)
+     * @param  \OpenAPI\Client\Model\UnregisterResource $unregister_resource unregister_resource (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function webhookUnregisterPost($resource = null)
+    public function webhookUnregisterPost($unregister_resource = null)
     {
-        list($response) = $this->webhookUnregisterPostWithHttpInfo($resource);
+        list($response) = $this->webhookUnregisterPostWithHttpInfo($unregister_resource);
         return $response;
     }
 
     /**
      * Operation webhookUnregisterPostWithHttpInfo
      *
-     * @param  string $resource (optional)
+     * @param  \OpenAPI\Client\Model\UnregisterResource $unregister_resource (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhookUnregisterPostWithHttpInfo($resource = null)
+    public function webhookUnregisterPostWithHttpInfo($unregister_resource = null)
     {
-        $request = $this->webhookUnregisterPostRequest($resource);
+        $request = $this->webhookUnregisterPostRequest($unregister_resource);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1478,14 +1425,14 @@ class WebhookApi
      *
      * 
      *
-     * @param  string $resource (optional)
+     * @param  \OpenAPI\Client\Model\UnregisterResource $unregister_resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookUnregisterPostAsync($resource = null)
+    public function webhookUnregisterPostAsync($unregister_resource = null)
     {
-        return $this->webhookUnregisterPostAsyncWithHttpInfo($resource)
+        return $this->webhookUnregisterPostAsyncWithHttpInfo($unregister_resource)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1498,15 +1445,15 @@ class WebhookApi
      *
      * 
      *
-     * @param  string $resource (optional)
+     * @param  \OpenAPI\Client\Model\UnregisterResource $unregister_resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookUnregisterPostAsyncWithHttpInfo($resource = null)
+    public function webhookUnregisterPostAsyncWithHttpInfo($unregister_resource = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->webhookUnregisterPostRequest($resource);
+        $request = $this->webhookUnregisterPostRequest($unregister_resource);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1545,12 +1492,12 @@ class WebhookApi
     /**
      * Create request for operation 'webhookUnregisterPost'
      *
-     * @param  string $resource (optional)
+     * @param  \OpenAPI\Client\Model\UnregisterResource $unregister_resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function webhookUnregisterPostRequest($resource = null)
+    protected function webhookUnregisterPostRequest($unregister_resource = null)
     {
 
         $resourcePath = '/webhook/unregister';
@@ -1562,12 +1509,11 @@ class WebhookApi
 
 
 
-        // form params
-        if ($resource !== null) {
-            $formParams['resource'] = ObjectSerializer::toFormValue($resource);
-        }
         // body params
         $_tempBody = null;
+        if (isset($unregister_resource)) {
+            $_tempBody = $unregister_resource;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1576,7 +1522,7 @@ class WebhookApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 

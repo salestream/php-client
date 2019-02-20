@@ -316,21 +316,15 @@ class LeadApi
      * Operation leadIdPut
      *
      * @param  string $id lead id (required)
-     * @param  string $company company (optional)
-     * @param  string $url url (optional)
-     * @param  string $description description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses addresses (optional)
-     * @param  object $custom_fields custom_fields (optional)
-     * @param  string $status status (optional)
+     * @param  \OpenAPI\Client\Model\UpdateLead $update_lead update_lead (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdPut($id, $company = null, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadIdPut($id, $update_lead = null)
     {
-        list($response) = $this->leadIdPutWithHttpInfo($id, $company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+        list($response) = $this->leadIdPutWithHttpInfo($id, $update_lead);
         return $response;
     }
 
@@ -338,21 +332,15 @@ class LeadApi
      * Operation leadIdPutWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  string $company (optional)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\UpdateLead $update_lead (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdPutWithHttpInfo($id, $company = null, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadIdPutWithHttpInfo($id, $update_lead = null)
     {
-        $request = $this->leadIdPutRequest($id, $company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+        $request = $this->leadIdPutRequest($id, $update_lead);
 
         try {
             $options = $this->createHttpClientOption();
@@ -473,20 +461,14 @@ class LeadApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $company (optional)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\UpdateLead $update_lead (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdPutAsync($id, $company = null, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadIdPutAsync($id, $update_lead = null)
     {
-        return $this->leadIdPutAsyncWithHttpInfo($id, $company, $url, $description, $contacts, $addresses, $custom_fields, $status)
+        return $this->leadIdPutAsyncWithHttpInfo($id, $update_lead)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -500,21 +482,15 @@ class LeadApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $company (optional)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\UpdateLead $update_lead (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdPutAsyncWithHttpInfo($id, $company = null, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadIdPutAsyncWithHttpInfo($id, $update_lead = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdPutRequest($id, $company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+        $request = $this->leadIdPutRequest($id, $update_lead);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -554,18 +530,12 @@ class LeadApi
      * Create request for operation 'leadIdPut'
      *
      * @param  string $id lead id (required)
-     * @param  string $company (optional)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\UpdateLead $update_lead (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdPutRequest($id, $company = null, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    protected function leadIdPutRequest($id, $update_lead = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -591,36 +561,11 @@ class LeadApi
             );
         }
 
-        // form params
-        if ($company !== null) {
-            $formParams['company'] = ObjectSerializer::toFormValue($company);
-        }
-        // form params
-        if ($url !== null) {
-            $formParams['url'] = ObjectSerializer::toFormValue($url);
-        }
-        // form params
-        if ($description !== null) {
-            $formParams['description'] = ObjectSerializer::toFormValue($description);
-        }
-        // form params
-        if ($contacts !== null) {
-            $formParams['contacts'] = ObjectSerializer::toFormValue($contacts);
-        }
-        // form params
-        if ($addresses !== null) {
-            $formParams['addresses'] = ObjectSerializer::toFormValue($addresses);
-        }
-        // form params
-        if ($custom_fields !== null) {
-            $formParams['custom_fields'] = ObjectSerializer::toFormValue($custom_fields);
-        }
-        // form params
-        if ($status !== null) {
-            $formParams['status'] = ObjectSerializer::toFormValue($status);
-        }
         // body params
         $_tempBody = null;
+        if (isset($update_lead)) {
+            $_tempBody = $update_lead;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -629,7 +574,7 @@ class LeadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -691,42 +636,30 @@ class LeadApi
     /**
      * Operation leadPost
      *
-     * @param  string $company company (required)
-     * @param  string $url url (optional)
-     * @param  string $description description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses addresses (optional)
-     * @param  object $custom_fields custom_fields (optional)
-     * @param  string $status status (optional)
+     * @param  \OpenAPI\Client\Model\CreateLead $create_lead create_lead (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadPost($company, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadPost($create_lead = null)
     {
-        list($response) = $this->leadPostWithHttpInfo($company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+        list($response) = $this->leadPostWithHttpInfo($create_lead);
         return $response;
     }
 
     /**
      * Operation leadPostWithHttpInfo
      *
-     * @param  string $company (required)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\CreateLead $create_lead (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadPostWithHttpInfo($company, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadPostWithHttpInfo($create_lead = null)
     {
-        $request = $this->leadPostRequest($company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+        $request = $this->leadPostRequest($create_lead);
 
         try {
             $options = $this->createHttpClientOption();
@@ -846,20 +779,14 @@ class LeadApi
      *
      * 
      *
-     * @param  string $company (required)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\CreateLead $create_lead (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadPostAsync($company, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadPostAsync($create_lead = null)
     {
-        return $this->leadPostAsyncWithHttpInfo($company, $url, $description, $contacts, $addresses, $custom_fields, $status)
+        return $this->leadPostAsyncWithHttpInfo($create_lead)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -872,21 +799,15 @@ class LeadApi
      *
      * 
      *
-     * @param  string $company (required)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\CreateLead $create_lead (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadPostAsyncWithHttpInfo($company, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    public function leadPostAsyncWithHttpInfo($create_lead = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadPostRequest($company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+        $request = $this->leadPostRequest($create_lead);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -925,25 +846,13 @@ class LeadApi
     /**
      * Create request for operation 'leadPost'
      *
-     * @param  string $company (required)
-     * @param  string $url (optional)
-     * @param  string $description (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadContacts[] $contacts (optional)
-     * @param  \OpenAPI\Client\Model\CreateLeadAddresses[] $addresses (optional)
-     * @param  object $custom_fields (optional)
-     * @param  string $status (optional)
+     * @param  \OpenAPI\Client\Model\CreateLead $create_lead (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadPostRequest($company, $url = null, $description = null, $contacts = null, $addresses = null, $custom_fields = null, $status = null)
+    protected function leadPostRequest($create_lead = null)
     {
-        // verify the required parameter 'company' is set
-        if ($company === null || (is_array($company) && count($company) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company when calling leadPost'
-            );
-        }
 
         $resourcePath = '/lead';
         $formParams = [];
@@ -954,36 +863,11 @@ class LeadApi
 
 
 
-        // form params
-        if ($company !== null) {
-            $formParams['company'] = ObjectSerializer::toFormValue($company);
-        }
-        // form params
-        if ($url !== null) {
-            $formParams['url'] = ObjectSerializer::toFormValue($url);
-        }
-        // form params
-        if ($description !== null) {
-            $formParams['description'] = ObjectSerializer::toFormValue($description);
-        }
-        // form params
-        if ($contacts !== null) {
-            $formParams['contacts'] = ObjectSerializer::toFormValue($contacts);
-        }
-        // form params
-        if ($addresses !== null) {
-            $formParams['addresses'] = ObjectSerializer::toFormValue($addresses);
-        }
-        // form params
-        if ($custom_fields !== null) {
-            $formParams['custom_fields'] = ObjectSerializer::toFormValue($custom_fields);
-        }
-        // form params
-        if ($status !== null) {
-            $formParams['status'] = ObjectSerializer::toFormValue($status);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_lead)) {
+            $_tempBody = $create_lead;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -992,7 +876,7 @@ class LeadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -1054,31 +938,29 @@ class LeadApi
     /**
      * Operation leadSearchPost
      *
-     * @param  string $search_string search_string (optional)
-     * @param  string[] $columns columns (optional)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object inline_object (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function leadSearchPost($search_string = null, $columns = null)
+    public function leadSearchPost($inline_object = null)
     {
-        $this->leadSearchPostWithHttpInfo($search_string, $columns);
+        $this->leadSearchPostWithHttpInfo($inline_object);
     }
 
     /**
      * Operation leadSearchPostWithHttpInfo
      *
-     * @param  string $search_string (optional)
-     * @param  string[] $columns (optional)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadSearchPostWithHttpInfo($search_string = null, $columns = null)
+    public function leadSearchPostWithHttpInfo($inline_object = null)
     {
-        $request = $this->leadSearchPostRequest($search_string, $columns);
+        $request = $this->leadSearchPostRequest($inline_object);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1122,15 +1004,14 @@ class LeadApi
      *
      * 
      *
-     * @param  string $search_string (optional)
-     * @param  string[] $columns (optional)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadSearchPostAsync($search_string = null, $columns = null)
+    public function leadSearchPostAsync($inline_object = null)
     {
-        return $this->leadSearchPostAsyncWithHttpInfo($search_string, $columns)
+        return $this->leadSearchPostAsyncWithHttpInfo($inline_object)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1143,16 +1024,15 @@ class LeadApi
      *
      * 
      *
-     * @param  string $search_string (optional)
-     * @param  string[] $columns (optional)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadSearchPostAsyncWithHttpInfo($search_string = null, $columns = null)
+    public function leadSearchPostAsyncWithHttpInfo($inline_object = null)
     {
         $returnType = '';
-        $request = $this->leadSearchPostRequest($search_string, $columns);
+        $request = $this->leadSearchPostRequest($inline_object);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1180,13 +1060,12 @@ class LeadApi
     /**
      * Create request for operation 'leadSearchPost'
      *
-     * @param  string $search_string (optional)
-     * @param  string[] $columns (optional)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadSearchPostRequest($search_string = null, $columns = null)
+    protected function leadSearchPostRequest($inline_object = null)
     {
 
         $resourcePath = '/lead/search';
@@ -1198,16 +1077,11 @@ class LeadApi
 
 
 
-        // form params
-        if ($search_string !== null) {
-            $formParams['searchString'] = ObjectSerializer::toFormValue($search_string);
-        }
-        // form params
-        if ($columns !== null) {
-            $formParams['columns'] = ObjectSerializer::toFormValue($columns);
-        }
         // body params
         $_tempBody = null;
+        if (isset($inline_object)) {
+            $_tempBody = $inline_object;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1216,7 +1090,7 @@ class LeadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 

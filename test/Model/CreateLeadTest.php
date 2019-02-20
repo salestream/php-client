@@ -100,6 +100,13 @@ class CreateLeadTest extends TestCase
     }
 
     /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
      * Test attribute "contacts"
      */
     public function testPropertyContacts()
@@ -117,13 +124,6 @@ class CreateLeadTest extends TestCase
      * Test attribute "custom_fields"
      */
     public function testPropertyCustomFields()
-    {
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
     {
     }
 }

@@ -58,7 +58,8 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'title' => 'string'
+        'title' => 'string',
+        'details' => '\OpenAPI\Client\Model\CreateLeadDetails[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'title' => null
+        'title' => null,
+        'details' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'title' => 'title'
+        'title' => 'title',
+        'details' => 'details'
     ];
 
     /**
@@ -109,7 +112,8 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'title' => 'setTitle'
+        'title' => 'setTitle',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -119,7 +123,8 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'title' => 'getTitle'
+        'title' => 'getTitle',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -184,6 +189,7 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class CreateLeadContacts implements ModelInterface, ArrayAccess
     public function setTitle($title)
     {
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return \OpenAPI\Client\Model\CreateLeadDetails[]|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param \OpenAPI\Client\Model\CreateLeadDetails[]|null $details details
+     *
+     * @return $this
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
 
         return $this;
     }

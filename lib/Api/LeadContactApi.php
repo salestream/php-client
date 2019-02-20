@@ -756,17 +756,15 @@ class LeadContactApi
      *
      * @param  string $id lead id (required)
      * @param  string $contact_id contact id (required)
-     * @param  string $name name (optional)
-     * @param  string $title title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details details (optional)
+     * @param  \OpenAPI\Client\Model\UpdateContact $update_contact update_contact (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdContactsContactIdPut($id, $contact_id, $name = null, $title = null, $details = null)
+    public function leadIdContactsContactIdPut($id, $contact_id, $update_contact = null)
     {
-        list($response) = $this->leadIdContactsContactIdPutWithHttpInfo($id, $contact_id, $name, $title, $details);
+        list($response) = $this->leadIdContactsContactIdPutWithHttpInfo($id, $contact_id, $update_contact);
         return $response;
     }
 
@@ -775,17 +773,15 @@ class LeadContactApi
      *
      * @param  string $id lead id (required)
      * @param  string $contact_id contact id (required)
-     * @param  string $name (optional)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\UpdateContact $update_contact (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdContactsContactIdPutWithHttpInfo($id, $contact_id, $name = null, $title = null, $details = null)
+    public function leadIdContactsContactIdPutWithHttpInfo($id, $contact_id, $update_contact = null)
     {
-        $request = $this->leadIdContactsContactIdPutRequest($id, $contact_id, $name, $title, $details);
+        $request = $this->leadIdContactsContactIdPutRequest($id, $contact_id, $update_contact);
 
         try {
             $options = $this->createHttpClientOption();
@@ -907,16 +903,14 @@ class LeadContactApi
      *
      * @param  string $id lead id (required)
      * @param  string $contact_id contact id (required)
-     * @param  string $name (optional)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\UpdateContact $update_contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdContactsContactIdPutAsync($id, $contact_id, $name = null, $title = null, $details = null)
+    public function leadIdContactsContactIdPutAsync($id, $contact_id, $update_contact = null)
     {
-        return $this->leadIdContactsContactIdPutAsyncWithHttpInfo($id, $contact_id, $name, $title, $details)
+        return $this->leadIdContactsContactIdPutAsyncWithHttpInfo($id, $contact_id, $update_contact)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -931,17 +925,15 @@ class LeadContactApi
      *
      * @param  string $id lead id (required)
      * @param  string $contact_id contact id (required)
-     * @param  string $name (optional)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\UpdateContact $update_contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdContactsContactIdPutAsyncWithHttpInfo($id, $contact_id, $name = null, $title = null, $details = null)
+    public function leadIdContactsContactIdPutAsyncWithHttpInfo($id, $contact_id, $update_contact = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdContactsContactIdPutRequest($id, $contact_id, $name, $title, $details);
+        $request = $this->leadIdContactsContactIdPutRequest($id, $contact_id, $update_contact);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -982,14 +974,12 @@ class LeadContactApi
      *
      * @param  string $id lead id (required)
      * @param  string $contact_id contact id (required)
-     * @param  string $name (optional)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\UpdateContact $update_contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdContactsContactIdPutRequest($id, $contact_id, $name = null, $title = null, $details = null)
+    protected function leadIdContactsContactIdPutRequest($id, $contact_id, $update_contact = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1029,20 +1019,11 @@ class LeadContactApi
             );
         }
 
-        // form params
-        if ($name !== null) {
-            $formParams['name'] = ObjectSerializer::toFormValue($name);
-        }
-        // form params
-        if ($title !== null) {
-            $formParams['title'] = ObjectSerializer::toFormValue($title);
-        }
-        // form params
-        if ($details !== null) {
-            $formParams['details'] = ObjectSerializer::toFormValue($details);
-        }
         // body params
         $_tempBody = null;
+        if (isset($update_contact)) {
+            $_tempBody = $update_contact;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1051,7 +1032,7 @@ class LeadContactApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -1427,17 +1408,15 @@ class LeadContactApi
      * Operation leadIdContactsPost
      *
      * @param  string $id lead id (required)
-     * @param  string $name name (required)
-     * @param  string $title title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details details (optional)
+     * @param  \OpenAPI\Client\Model\CreateContact $create_contact create_contact (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdContactsPost($id, $name, $title = null, $details = null)
+    public function leadIdContactsPost($id, $create_contact = null)
     {
-        list($response) = $this->leadIdContactsPostWithHttpInfo($id, $name, $title, $details);
+        list($response) = $this->leadIdContactsPostWithHttpInfo($id, $create_contact);
         return $response;
     }
 
@@ -1445,17 +1424,15 @@ class LeadContactApi
      * Operation leadIdContactsPostWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  string $name (required)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\CreateContact $create_contact (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdContactsPostWithHttpInfo($id, $name, $title = null, $details = null)
+    public function leadIdContactsPostWithHttpInfo($id, $create_contact = null)
     {
-        $request = $this->leadIdContactsPostRequest($id, $name, $title, $details);
+        $request = $this->leadIdContactsPostRequest($id, $create_contact);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1576,16 +1553,14 @@ class LeadContactApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $name (required)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\CreateContact $create_contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdContactsPostAsync($id, $name, $title = null, $details = null)
+    public function leadIdContactsPostAsync($id, $create_contact = null)
     {
-        return $this->leadIdContactsPostAsyncWithHttpInfo($id, $name, $title, $details)
+        return $this->leadIdContactsPostAsyncWithHttpInfo($id, $create_contact)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1599,17 +1574,15 @@ class LeadContactApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $name (required)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\CreateContact $create_contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdContactsPostAsyncWithHttpInfo($id, $name, $title = null, $details = null)
+    public function leadIdContactsPostAsyncWithHttpInfo($id, $create_contact = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdContactsPostRequest($id, $name, $title, $details);
+        $request = $this->leadIdContactsPostRequest($id, $create_contact);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1649,25 +1622,17 @@ class LeadContactApi
      * Create request for operation 'leadIdContactsPost'
      *
      * @param  string $id lead id (required)
-     * @param  string $name (required)
-     * @param  string $title (optional)
-     * @param  \OpenAPI\Client\Model\CreateContactDetails[] $details (optional)
+     * @param  \OpenAPI\Client\Model\CreateContact $create_contact (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdContactsPostRequest($id, $name, $title = null, $details = null)
+    protected function leadIdContactsPostRequest($id, $create_contact = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling leadIdContactsPost'
-            );
-        }
-        // verify the required parameter 'name' is set
-        if ($name === null || (is_array($name) && count($name) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $name when calling leadIdContactsPost'
             );
         }
 
@@ -1688,20 +1653,11 @@ class LeadContactApi
             );
         }
 
-        // form params
-        if ($name !== null) {
-            $formParams['name'] = ObjectSerializer::toFormValue($name);
-        }
-        // form params
-        if ($title !== null) {
-            $formParams['title'] = ObjectSerializer::toFormValue($title);
-        }
-        // form params
-        if ($details !== null) {
-            $formParams['details'] = ObjectSerializer::toFormValue($details);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_contact)) {
+            $_tempBody = $create_contact;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1710,7 +1666,7 @@ class LeadContactApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 

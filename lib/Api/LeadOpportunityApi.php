@@ -737,20 +737,15 @@ class LeadOpportunityApi
      *
      * @param  string $id lead id (required)
      * @param  string $opportunity_id opportunity id (required)
-     * @param  int $value value (required)
-     * @param  int $est_close_date est_close_date (required)
-     * @param  string $assignee assignee (required)
-     * @param  int $confidence confidence (required)
-     * @param  string $contact contact (optional)
-     * @param  Text $comment comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity create_opportunity (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdOpportunityOpportunityIdPut($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityOpportunityIdPut($id, $opportunity_id, $create_opportunity = null)
     {
-        list($response) = $this->leadIdOpportunityOpportunityIdPutWithHttpInfo($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+        list($response) = $this->leadIdOpportunityOpportunityIdPutWithHttpInfo($id, $opportunity_id, $create_opportunity);
         return $response;
     }
 
@@ -759,20 +754,15 @@ class LeadOpportunityApi
      *
      * @param  string $id lead id (required)
      * @param  string $opportunity_id opportunity id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdOpportunityOpportunityIdPutWithHttpInfo($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityOpportunityIdPutWithHttpInfo($id, $opportunity_id, $create_opportunity = null)
     {
-        $request = $this->leadIdOpportunityOpportunityIdPutRequest($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+        $request = $this->leadIdOpportunityOpportunityIdPutRequest($id, $opportunity_id, $create_opportunity);
 
         try {
             $options = $this->createHttpClientOption();
@@ -894,19 +884,14 @@ class LeadOpportunityApi
      *
      * @param  string $id lead id (required)
      * @param  string $opportunity_id opportunity id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdOpportunityOpportunityIdPutAsync($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityOpportunityIdPutAsync($id, $opportunity_id, $create_opportunity = null)
     {
-        return $this->leadIdOpportunityOpportunityIdPutAsyncWithHttpInfo($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact, $comment)
+        return $this->leadIdOpportunityOpportunityIdPutAsyncWithHttpInfo($id, $opportunity_id, $create_opportunity)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -921,20 +906,15 @@ class LeadOpportunityApi
      *
      * @param  string $id lead id (required)
      * @param  string $opportunity_id opportunity id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdOpportunityOpportunityIdPutAsyncWithHttpInfo($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityOpportunityIdPutAsyncWithHttpInfo($id, $opportunity_id, $create_opportunity = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdOpportunityOpportunityIdPutRequest($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+        $request = $this->leadIdOpportunityOpportunityIdPutRequest($id, $opportunity_id, $create_opportunity);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -975,17 +955,12 @@ class LeadOpportunityApi
      *
      * @param  string $id lead id (required)
      * @param  string $opportunity_id opportunity id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdOpportunityOpportunityIdPutRequest($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    protected function leadIdOpportunityOpportunityIdPutRequest($id, $opportunity_id, $create_opportunity = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -997,30 +972,6 @@ class LeadOpportunityApi
         if ($opportunity_id === null || (is_array($opportunity_id) && count($opportunity_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $opportunity_id when calling leadIdOpportunityOpportunityIdPut'
-            );
-        }
-        // verify the required parameter 'value' is set
-        if ($value === null || (is_array($value) && count($value) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $value when calling leadIdOpportunityOpportunityIdPut'
-            );
-        }
-        // verify the required parameter 'est_close_date' is set
-        if ($est_close_date === null || (is_array($est_close_date) && count($est_close_date) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $est_close_date when calling leadIdOpportunityOpportunityIdPut'
-            );
-        }
-        // verify the required parameter 'assignee' is set
-        if ($assignee === null || (is_array($assignee) && count($assignee) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $assignee when calling leadIdOpportunityOpportunityIdPut'
-            );
-        }
-        // verify the required parameter 'confidence' is set
-        if ($confidence === null || (is_array($confidence) && count($confidence) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $confidence when calling leadIdOpportunityOpportunityIdPut'
             );
         }
 
@@ -1049,32 +1000,11 @@ class LeadOpportunityApi
             );
         }
 
-        // form params
-        if ($value !== null) {
-            $formParams['value'] = ObjectSerializer::toFormValue($value);
-        }
-        // form params
-        if ($est_close_date !== null) {
-            $formParams['est_close_date'] = ObjectSerializer::toFormValue($est_close_date);
-        }
-        // form params
-        if ($assignee !== null) {
-            $formParams['assignee'] = ObjectSerializer::toFormValue($assignee);
-        }
-        // form params
-        if ($confidence !== null) {
-            $formParams['confidence'] = ObjectSerializer::toFormValue($confidence);
-        }
-        // form params
-        if ($contact !== null) {
-            $formParams['contact'] = ObjectSerializer::toFormValue($contact);
-        }
-        // form params
-        if ($comment !== null) {
-            $formParams['comment'] = ObjectSerializer::toFormValue($comment);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_opportunity)) {
+            $_tempBody = $create_opportunity;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1083,7 +1013,7 @@ class LeadOpportunityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -1146,20 +1076,15 @@ class LeadOpportunityApi
      * Operation leadIdOpportunityPost
      *
      * @param  string $id lead id (required)
-     * @param  int $value value (required)
-     * @param  int $est_close_date est_close_date (required)
-     * @param  string $assignee assignee (required)
-     * @param  int $confidence confidence (required)
-     * @param  string $contact contact (optional)
-     * @param  Text $comment comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity create_opportunity (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdOpportunityPost($id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityPost($id, $create_opportunity = null)
     {
-        list($response) = $this->leadIdOpportunityPostWithHttpInfo($id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+        list($response) = $this->leadIdOpportunityPostWithHttpInfo($id, $create_opportunity);
         return $response;
     }
 
@@ -1167,20 +1092,15 @@ class LeadOpportunityApi
      * Operation leadIdOpportunityPostWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdOpportunityPostWithHttpInfo($id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityPostWithHttpInfo($id, $create_opportunity = null)
     {
-        $request = $this->leadIdOpportunityPostRequest($id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+        $request = $this->leadIdOpportunityPostRequest($id, $create_opportunity);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1301,19 +1221,14 @@ class LeadOpportunityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdOpportunityPostAsync($id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityPostAsync($id, $create_opportunity = null)
     {
-        return $this->leadIdOpportunityPostAsyncWithHttpInfo($id, $value, $est_close_date, $assignee, $confidence, $contact, $comment)
+        return $this->leadIdOpportunityPostAsyncWithHttpInfo($id, $create_opportunity)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1327,20 +1242,15 @@ class LeadOpportunityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdOpportunityPostAsyncWithHttpInfo($id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    public function leadIdOpportunityPostAsyncWithHttpInfo($id, $create_opportunity = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdOpportunityPostRequest($id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+        $request = $this->leadIdOpportunityPostRequest($id, $create_opportunity);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1380,46 +1290,17 @@ class LeadOpportunityApi
      * Create request for operation 'leadIdOpportunityPost'
      *
      * @param  string $id lead id (required)
-     * @param  int $value (required)
-     * @param  int $est_close_date (required)
-     * @param  string $assignee (required)
-     * @param  int $confidence (required)
-     * @param  string $contact (optional)
-     * @param  Text $comment (optional)
+     * @param  \OpenAPI\Client\Model\CreateOpportunity $create_opportunity (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdOpportunityPostRequest($id, $value, $est_close_date, $assignee, $confidence, $contact = null, $comment = null)
+    protected function leadIdOpportunityPostRequest($id, $create_opportunity = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling leadIdOpportunityPost'
-            );
-        }
-        // verify the required parameter 'value' is set
-        if ($value === null || (is_array($value) && count($value) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $value when calling leadIdOpportunityPost'
-            );
-        }
-        // verify the required parameter 'est_close_date' is set
-        if ($est_close_date === null || (is_array($est_close_date) && count($est_close_date) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $est_close_date when calling leadIdOpportunityPost'
-            );
-        }
-        // verify the required parameter 'assignee' is set
-        if ($assignee === null || (is_array($assignee) && count($assignee) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $assignee when calling leadIdOpportunityPost'
-            );
-        }
-        // verify the required parameter 'confidence' is set
-        if ($confidence === null || (is_array($confidence) && count($confidence) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $confidence when calling leadIdOpportunityPost'
             );
         }
 
@@ -1440,32 +1321,11 @@ class LeadOpportunityApi
             );
         }
 
-        // form params
-        if ($value !== null) {
-            $formParams['value'] = ObjectSerializer::toFormValue($value);
-        }
-        // form params
-        if ($est_close_date !== null) {
-            $formParams['est_close_date'] = ObjectSerializer::toFormValue($est_close_date);
-        }
-        // form params
-        if ($assignee !== null) {
-            $formParams['assignee'] = ObjectSerializer::toFormValue($assignee);
-        }
-        // form params
-        if ($confidence !== null) {
-            $formParams['confidence'] = ObjectSerializer::toFormValue($confidence);
-        }
-        // form params
-        if ($contact !== null) {
-            $formParams['contact'] = ObjectSerializer::toFormValue($contact);
-        }
-        // form params
-        if ($comment !== null) {
-            $formParams['comment'] = ObjectSerializer::toFormValue($comment);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_opportunity)) {
+            $_tempBody = $create_opportunity;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1474,7 +1334,7 @@ class LeadOpportunityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 

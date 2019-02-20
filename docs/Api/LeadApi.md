@@ -66,7 +66,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdPut**
-> \OpenAPI\Client\Model\SuccessResponse leadIdPut($id, $company, $url, $description, $contacts, $addresses, $custom_fields, $status)
+> \OpenAPI\Client\Model\SuccessResponse leadIdPut($id, $update_lead)
 
 
 
@@ -90,16 +90,10 @@ $apiInstance = new OpenAPI\Client\Api\LeadApi(
     $config
 );
 $id = 'id_example'; // string | lead id
-$company = 'company_example'; // string | 
-$url = 'url_example'; // string | 
-$description = 'description_example'; // string | 
-$contacts = new \OpenAPI\Client\Model\CreateLeadContacts(); // \OpenAPI\Client\Model\CreateLeadContacts[] | 
-$addresses = new \OpenAPI\Client\Model\CreateLeadAddresses(); // \OpenAPI\Client\Model\CreateLeadAddresses[] | 
-$custom_fields = new \stdClass; // object | 
-$status = 'status_example'; // string | 
+$update_lead = new \OpenAPI\Client\Model\UpdateLead(); // \OpenAPI\Client\Model\UpdateLead | 
 
 try {
-    $result = $apiInstance->leadIdPut($id, $company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+    $result = $apiInstance->leadIdPut($id, $update_lead);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeadApi->leadIdPut: ', $e->getMessage(), PHP_EOL;
@@ -112,13 +106,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
- **company** | **string**|  | [optional]
- **url** | **string**|  | [optional]
- **description** | **string**|  | [optional]
- **contacts** | [**\OpenAPI\Client\Model\CreateLeadContacts[]**](../Model/\OpenAPI\Client\Model\CreateLeadContacts.md)|  | [optional]
- **addresses** | [**\OpenAPI\Client\Model\CreateLeadAddresses[]**](../Model/\OpenAPI\Client\Model\CreateLeadAddresses.md)|  | [optional]
- **custom_fields** | [**object**](../Model/object.md)|  | [optional]
- **status** | **string**|  | [optional]
+ **update_lead** | [**\OpenAPI\Client\Model\UpdateLead**](../Model/UpdateLead.md)|  | [optional]
 
 ### Return type
 
@@ -130,13 +118,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadPost**
-> \OpenAPI\Client\Model\SuccessResponse leadPost($company, $url, $description, $contacts, $addresses, $custom_fields, $status)
+> \OpenAPI\Client\Model\SuccessResponse leadPost($create_lead)
 
 
 
@@ -159,16 +147,10 @@ $apiInstance = new OpenAPI\Client\Api\LeadApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company = 'company_example'; // string | 
-$url = 'url_example'; // string | 
-$description = 'description_example'; // string | 
-$contacts = new \OpenAPI\Client\Model\CreateLeadContacts(); // \OpenAPI\Client\Model\CreateLeadContacts[] | 
-$addresses = new \OpenAPI\Client\Model\CreateLeadAddresses(); // \OpenAPI\Client\Model\CreateLeadAddresses[] | 
-$custom_fields = new \stdClass; // object | 
-$status = 'status_example'; // string | 
+$create_lead = new \OpenAPI\Client\Model\CreateLead(); // \OpenAPI\Client\Model\CreateLead | 
 
 try {
-    $result = $apiInstance->leadPost($company, $url, $description, $contacts, $addresses, $custom_fields, $status);
+    $result = $apiInstance->leadPost($create_lead);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeadApi->leadPost: ', $e->getMessage(), PHP_EOL;
@@ -180,13 +162,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company** | **string**|  |
- **url** | **string**|  | [optional]
- **description** | **string**|  | [optional]
- **contacts** | [**\OpenAPI\Client\Model\CreateLeadContacts[]**](../Model/\OpenAPI\Client\Model\CreateLeadContacts.md)|  | [optional]
- **addresses** | [**\OpenAPI\Client\Model\CreateLeadAddresses[]**](../Model/\OpenAPI\Client\Model\CreateLeadAddresses.md)|  | [optional]
- **custom_fields** | [**object**](../Model/object.md)|  | [optional]
- **status** | **string**|  | [optional]
+ **create_lead** | [**\OpenAPI\Client\Model\CreateLead**](../Model/CreateLead.md)|  | [optional]
 
 ### Return type
 
@@ -198,13 +174,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadSearchPost**
-> leadSearchPost($search_string, $columns)
+> leadSearchPost($inline_object)
 
 
 
@@ -227,11 +203,10 @@ $apiInstance = new OpenAPI\Client\Api\LeadApi(
     new GuzzleHttp\Client(),
     $config
 );
-$search_string = 'search_string_example'; // string | 
-$columns = 'columns_example'; // string[] | 
+$inline_object = new \OpenAPI\Client\Model\InlineObject(); // \OpenAPI\Client\Model\InlineObject | 
 
 try {
-    $apiInstance->leadSearchPost($search_string, $columns);
+    $apiInstance->leadSearchPost($inline_object);
 } catch (Exception $e) {
     echo 'Exception when calling LeadApi->leadSearchPost: ', $e->getMessage(), PHP_EOL;
 }
@@ -242,8 +217,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_string** | **string**|  | [optional]
- **columns** | [**string[]**](../Model/string.md)|  | [optional]
+ **inline_object** | [**\OpenAPI\Client\Model\InlineObject**](../Model/InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -255,7 +229,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

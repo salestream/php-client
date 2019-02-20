@@ -93,6 +93,16 @@ class CommonApiTest extends TestCase
     }
 
     /**
+     * Test case for membersGet
+     *
+     * .
+     *
+     */
+    public function testMembersGet()
+    {
+    }
+
+    /**
      * Test case for opportunityStatusesGet
      *
      * .

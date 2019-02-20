@@ -116,7 +116,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookPost**
-> \OpenAPI\Client\Model\SuccessResponse webhookPost($url, $fallback_url, $error_url, $timeout, $retry_attempts)
+> \OpenAPI\Client\Model\SuccessResponse webhookPost($create_webhook)
 
 
 
@@ -139,14 +139,10 @@ $apiInstance = new OpenAPI\Client\Api\WebhookApi(
     new GuzzleHttp\Client(),
     $config
 );
-$url = 'url_example'; // string | 
-$fallback_url = 'fallback_url_example'; // string | 
-$error_url = 'error_url_example'; // string | 
-$timeout = 56; // int | 
-$retry_attempts = 56; // int | 
+$create_webhook = new \OpenAPI\Client\Model\CreateWebhook(); // \OpenAPI\Client\Model\CreateWebhook | 
 
 try {
-    $result = $apiInstance->webhookPost($url, $fallback_url, $error_url, $timeout, $retry_attempts);
+    $result = $apiInstance->webhookPost($create_webhook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookPost: ', $e->getMessage(), PHP_EOL;
@@ -158,11 +154,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | **string**|  |
- **fallback_url** | **string**|  | [optional]
- **error_url** | **string**|  | [optional]
- **timeout** | **int**|  | [optional]
- **retry_attempts** | **int**|  | [optional]
+ **create_webhook** | [**\OpenAPI\Client\Model\CreateWebhook**](../Model/CreateWebhook.md)|  | [optional]
 
 ### Return type
 
@@ -174,13 +166,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookRegisterPost**
-> \OpenAPI\Client\Model\SuccessResponse webhookRegisterPost($resource, $fields)
+> \OpenAPI\Client\Model\SuccessResponse webhookRegisterPost($register_resource)
 
 
 
@@ -203,11 +195,10 @@ $apiInstance = new OpenAPI\Client\Api\WebhookApi(
     new GuzzleHttp\Client(),
     $config
 );
-$resource = 'resource_example'; // string | 
-$fields = 'fields_example'; // string[] | 
+$register_resource = new \OpenAPI\Client\Model\RegisterResource(); // \OpenAPI\Client\Model\RegisterResource | 
 
 try {
-    $result = $apiInstance->webhookRegisterPost($resource, $fields);
+    $result = $apiInstance->webhookRegisterPost($register_resource);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookRegisterPost: ', $e->getMessage(), PHP_EOL;
@@ -219,8 +210,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resource** | **string**|  | [optional]
- **fields** | [**string[]**](../Model/string.md)|  | [optional]
+ **register_resource** | [**\OpenAPI\Client\Model\RegisterResource**](../Model/RegisterResource.md)|  | [optional]
 
 ### Return type
 
@@ -232,13 +222,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookUnregisterPost**
-> \OpenAPI\Client\Model\SuccessResponse webhookUnregisterPost($resource)
+> \OpenAPI\Client\Model\SuccessResponse webhookUnregisterPost($unregister_resource)
 
 
 
@@ -261,10 +251,10 @@ $apiInstance = new OpenAPI\Client\Api\WebhookApi(
     new GuzzleHttp\Client(),
     $config
 );
-$resource = 'resource_example'; // string | 
+$unregister_resource = new \OpenAPI\Client\Model\UnregisterResource(); // \OpenAPI\Client\Model\UnregisterResource | 
 
 try {
-    $result = $apiInstance->webhookUnregisterPost($resource);
+    $result = $apiInstance->webhookUnregisterPost($unregister_resource);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookUnregisterPost: ', $e->getMessage(), PHP_EOL;
@@ -276,7 +266,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resource** | **string**|  | [optional]
+ **unregister_resource** | [**\OpenAPI\Client\Model\UnregisterResource**](../Model/UnregisterResource.md)|  | [optional]
 
 ### Return type
 
@@ -288,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

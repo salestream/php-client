@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdActivityEmailEmailIdPut**
-> \OpenAPI\Client\Model\SuccessResponse leadIdActivityEmailEmailIdPut($id, $email_id, $email_id, $to, $cc, $bcc, $subject, $message, $draft, $reminder_enabled, $reminder_date, $schedule)
+> \OpenAPI\Client\Model\SuccessResponse leadIdActivityEmailEmailIdPut($id, $email_id, $update_email)
 
 
 
@@ -100,19 +100,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityApi(
 );
 $id = 'id_example'; // string | lead id
 $email_id = 'email_id_example'; // string | email id
-$email_id = 'email_id_example'; // string | 
-$to = 'to_example'; // string[] | 
-$cc = 'cc_example'; // string[] | 
-$bcc = 'bcc_example'; // string[] | 
-$subject = 'subject_example'; // string | 
-$message = 'message_example'; // string | 
-$draft = True; // bool | 
-$reminder_enabled = True; // bool | 
-$reminder_date = 56; // int | 
-$schedule = 56; // int | 
+$update_email = new \OpenAPI\Client\Model\UpdateEmail(); // \OpenAPI\Client\Model\UpdateEmail | 
 
 try {
-    $result = $apiInstance->leadIdActivityEmailEmailIdPut($id, $email_id, $email_id, $to, $cc, $bcc, $subject, $message, $draft, $reminder_enabled, $reminder_date, $schedule);
+    $result = $apiInstance->leadIdActivityEmailEmailIdPut($id, $email_id, $update_email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityApi->leadIdActivityEmailEmailIdPut: ', $e->getMessage(), PHP_EOL;
@@ -126,16 +117,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
  **email_id** | **string**| email id |
- **email_id** | **string**|  | [optional]
- **to** | [**string[]**](../Model/string.md)|  | [optional]
- **cc** | [**string[]**](../Model/string.md)|  | [optional]
- **bcc** | [**string[]**](../Model/string.md)|  | [optional]
- **subject** | **string**|  | [optional]
- **message** | **string**|  | [optional]
- **draft** | **bool**|  | [optional]
- **reminder_enabled** | **bool**|  | [optional]
- **reminder_date** | **int**|  | [optional]
- **schedule** | **int**|  | [optional]
+ **update_email** | [**\OpenAPI\Client\Model\UpdateEmail**](../Model/UpdateEmail.md)|  | [optional]
 
 ### Return type
 
@@ -147,13 +129,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdActivityEmailPost**
-> \OpenAPI\Client\Model\SuccessResponse leadIdActivityEmailPost($id, $email_id, $to, $subject, $message, $cc, $bcc, $draft, $reminder_enabled, $reminder_date, $schedule)
+> \OpenAPI\Client\Model\SuccessResponse leadIdActivityEmailPost($id, $create_email)
 
 
 
@@ -177,19 +159,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityApi(
     $config
 );
 $id = 'id_example'; // string | lead id
-$email_id = 'email_id_example'; // string | 
-$to = 'to_example'; // string[] | 
-$subject = 'subject_example'; // string | 
-$message = 'message_example'; // string | 
-$cc = 'cc_example'; // string[] | 
-$bcc = 'bcc_example'; // string[] | 
-$draft = True; // bool | 
-$reminder_enabled = True; // bool | 
-$reminder_date = 56; // int | 
-$schedule = 56; // int | 
+$create_email = new \OpenAPI\Client\Model\CreateEmail(); // \OpenAPI\Client\Model\CreateEmail | 
 
 try {
-    $result = $apiInstance->leadIdActivityEmailPost($id, $email_id, $to, $subject, $message, $cc, $bcc, $draft, $reminder_enabled, $reminder_date, $schedule);
+    $result = $apiInstance->leadIdActivityEmailPost($id, $create_email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityApi->leadIdActivityEmailPost: ', $e->getMessage(), PHP_EOL;
@@ -202,16 +175,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
- **email_id** | **string**|  |
- **to** | [**string[]**](../Model/string.md)|  |
- **subject** | **string**|  |
- **message** | **string**|  |
- **cc** | [**string[]**](../Model/string.md)|  | [optional]
- **bcc** | [**string[]**](../Model/string.md)|  | [optional]
- **draft** | **bool**|  | [optional]
- **reminder_enabled** | **bool**|  | [optional]
- **reminder_date** | **int**|  | [optional]
- **schedule** | **int**|  | [optional]
+ **create_email** | [**\OpenAPI\Client\Model\CreateEmail**](../Model/CreateEmail.md)|  | [optional]
 
 ### Return type
 
@@ -223,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -347,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdActivityNoteNoteIdPut**
-> \OpenAPI\Client\Model\SuccessResponse leadIdActivityNoteNoteIdPut($id, $note_id, $note)
+> \OpenAPI\Client\Model\SuccessResponse leadIdActivityNoteNoteIdPut($id, $note_id, $update_note)
 
 
 
@@ -372,10 +336,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityApi(
 );
 $id = 'id_example'; // string | lead id
 $note_id = 'note_id_example'; // string | note id
-$note = 'note_example'; // string | 
+$update_note = new \OpenAPI\Client\Model\UpdateNote(); // \OpenAPI\Client\Model\UpdateNote | 
 
 try {
-    $result = $apiInstance->leadIdActivityNoteNoteIdPut($id, $note_id, $note);
+    $result = $apiInstance->leadIdActivityNoteNoteIdPut($id, $note_id, $update_note);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityApi->leadIdActivityNoteNoteIdPut: ', $e->getMessage(), PHP_EOL;
@@ -389,7 +353,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
  **note_id** | **string**| note id |
- **note** | **string**|  | [optional]
+ **update_note** | [**\OpenAPI\Client\Model\UpdateNote**](../Model/UpdateNote.md)|  | [optional]
 
 ### Return type
 
@@ -401,13 +365,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdActivityNotePost**
-> \OpenAPI\Client\Model\SuccessResponse leadIdActivityNotePost($id, $note)
+> \OpenAPI\Client\Model\SuccessResponse leadIdActivityNotePost($id, $create_note)
 
 
 
@@ -431,10 +395,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityApi(
     $config
 );
 $id = 'id_example'; // string | lead id
-$note = 'note_example'; // string | 
+$create_note = new \OpenAPI\Client\Model\CreateNote(); // \OpenAPI\Client\Model\CreateNote | 
 
 try {
-    $result = $apiInstance->leadIdActivityNotePost($id, $note);
+    $result = $apiInstance->leadIdActivityNotePost($id, $create_note);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityApi->leadIdActivityNotePost: ', $e->getMessage(), PHP_EOL;
@@ -447,7 +411,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
- **note** | **string**|  |
+ **create_note** | [**\OpenAPI\Client\Model\CreateNote**](../Model/CreateNote.md)|  | [optional]
 
 ### Return type
 
@@ -459,13 +423,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdActivitySmsPost**
-> \OpenAPI\Client\Model\SuccessResponse leadIdActivitySmsPost($id, $phone_id, $detail_id, $message, $draft, $schedule)
+> \OpenAPI\Client\Model\SuccessResponse leadIdActivitySmsPost($id, $create_sms)
 
 
 
@@ -489,14 +453,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityApi(
     $config
 );
 $id = 'id_example'; // string | lead id
-$phone_id = 'phone_id_example'; // string | 
-$detail_id = 'detail_id_example'; // string | 
-$message = new \OpenAPI\Client\Model\Text(); // Text | 
-$draft = True; // bool | 
-$schedule = 56; // int | 
+$create_sms = new \OpenAPI\Client\Model\CreateSms(); // \OpenAPI\Client\Model\CreateSms | 
 
 try {
-    $result = $apiInstance->leadIdActivitySmsPost($id, $phone_id, $detail_id, $message, $draft, $schedule);
+    $result = $apiInstance->leadIdActivitySmsPost($id, $create_sms);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityApi->leadIdActivitySmsPost: ', $e->getMessage(), PHP_EOL;
@@ -509,11 +469,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
- **phone_id** | **string**|  | [optional]
- **detail_id** | **string**|  | [optional]
- **message** | [**Text**](../Model/Text.md)|  | [optional]
- **draft** | **bool**|  | [optional]
- **schedule** | **int**|  | [optional]
+ **create_sms** | [**\OpenAPI\Client\Model\CreateSms**](../Model/CreateSms.md)|  | [optional]
 
 ### Return type
 
@@ -525,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -589,7 +545,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdActivitySmsSmsIdPut**
-> \OpenAPI\Client\Model\SuccessResponse leadIdActivitySmsSmsIdPut($id, $sms_id, $phone_id, $detail_id, $message, $draft, $schedule)
+> \OpenAPI\Client\Model\SuccessResponse leadIdActivitySmsSmsIdPut($id, $sms_id, $update_sms)
 
 
 
@@ -614,14 +570,10 @@ $apiInstance = new OpenAPI\Client\Api\ActivityApi(
 );
 $id = 'id_example'; // string | lead id
 $sms_id = 'sms_id_example'; // string | sms id
-$phone_id = 'phone_id_example'; // string | 
-$detail_id = 'detail_id_example'; // string | 
-$message = new \OpenAPI\Client\Model\Text(); // Text | 
-$draft = True; // bool | 
-$schedule = 56; // int | 
+$update_sms = new \OpenAPI\Client\Model\UpdateSms(); // \OpenAPI\Client\Model\UpdateSms | 
 
 try {
-    $result = $apiInstance->leadIdActivitySmsSmsIdPut($id, $sms_id, $phone_id, $detail_id, $message, $draft, $schedule);
+    $result = $apiInstance->leadIdActivitySmsSmsIdPut($id, $sms_id, $update_sms);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ActivityApi->leadIdActivitySmsSmsIdPut: ', $e->getMessage(), PHP_EOL;
@@ -635,11 +587,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
  **sms_id** | **string**| sms id |
- **phone_id** | **string**|  |
- **detail_id** | **string**|  |
- **message** | [**Text**](../Model/Text.md)|  |
- **draft** | **bool**|  | [optional]
- **schedule** | **int**|  | [optional]
+ **update_sms** | [**\OpenAPI\Client\Model\UpdateSms**](../Model/UpdateSms.md)|  | [optional]
 
 ### Return type
 
@@ -651,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

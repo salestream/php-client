@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **leadIdTaskPost**
-> \OpenAPI\Client\Model\SuccessResponse leadIdTaskPost($id, $date, $user_id, $desc)
+> \OpenAPI\Client\Model\SuccessResponse leadIdTaskPost($id, $create_task)
 
 
 
@@ -34,12 +34,10 @@ $apiInstance = new OpenAPI\Client\Api\TaskApi(
     $config
 );
 $id = 'id_example'; // string | lead id
-$date = 56; // int | 
-$user_id = 'user_id_example'; // string | 
-$desc = 'desc_example'; // string | 
+$create_task = new \OpenAPI\Client\Model\CreateTask(); // \OpenAPI\Client\Model\CreateTask | 
 
 try {
-    $result = $apiInstance->leadIdTaskPost($id, $date, $user_id, $desc);
+    $result = $apiInstance->leadIdTaskPost($id, $create_task);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskApi->leadIdTaskPost: ', $e->getMessage(), PHP_EOL;
@@ -52,9 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
- **date** | **int**|  |
- **user_id** | **string**|  |
- **desc** | **string**|  | [optional]
+ **create_task** | [**\OpenAPI\Client\Model\CreateTask**](../Model/CreateTask.md)|  | [optional]
 
 ### Return type
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -130,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdTaskTaskIdPut**
-> \OpenAPI\Client\Model\SuccessResponse leadIdTaskTaskIdPut($id, $task_id, $date, $user_id, $desc)
+> \OpenAPI\Client\Model\SuccessResponse leadIdTaskTaskIdPut($id, $task_id, $update_task)
 
 
 
@@ -155,12 +151,10 @@ $apiInstance = new OpenAPI\Client\Api\TaskApi(
 );
 $id = 'id_example'; // string | lead id
 $task_id = 'task_id_example'; // string | task id
-$date = 56; // int | 
-$user_id = 'user_id_example'; // string | 
-$desc = 'desc_example'; // string | 
+$update_task = new \OpenAPI\Client\Model\UpdateTask(); // \OpenAPI\Client\Model\UpdateTask | 
 
 try {
-    $result = $apiInstance->leadIdTaskTaskIdPut($id, $task_id, $date, $user_id, $desc);
+    $result = $apiInstance->leadIdTaskTaskIdPut($id, $task_id, $update_task);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaskApi->leadIdTaskTaskIdPut: ', $e->getMessage(), PHP_EOL;
@@ -174,9 +168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
  **task_id** | **string**| task id |
- **date** | **int**|  | [optional]
- **user_id** | **string**|  | [optional]
- **desc** | **string**|  | [optional]
+ **update_task** | [**\OpenAPI\Client\Model\UpdateTask**](../Model/UpdateTask.md)|  | [optional]
 
 ### Return type
 
@@ -188,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

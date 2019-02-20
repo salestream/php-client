@@ -59,7 +59,7 @@ class CreateSms implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'phone_id' => 'string',
         'detail_id' => 'string',
-        'message' => 'Text',
+        'message' => 'string',
         'draft' => 'bool',
         'schedule' => 'int'
     ];
@@ -279,7 +279,7 @@ class CreateSms implements ModelInterface, ArrayAccess
     /**
      * Gets message
      *
-     * @return Text|null
+     * @return string|null
      */
     public function getMessage()
     {
@@ -289,7 +289,7 @@ class CreateSms implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param Text|null $message message
+     * @param string|null $message message
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateSms
+ * CreateLeadDetails
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * UpdateSms Class Doc Comment
+ * CreateLeadDetails Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class UpdateSms implements ModelInterface, ArrayAccess
+class CreateLeadDetails implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class UpdateSms implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'updateSms';
+    protected static $openAPIModelName = 'createLead_details';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class UpdateSms implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'phone_id' => 'string',
-        'detail_id' => 'string',
-        'message' => 'string',
-        'draft' => 'bool',
-        'schedule' => 'int'
+        'contact' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -70,11 +67,8 @@ class UpdateSms implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'phone_id' => null,
-        'detail_id' => null,
-        'message' => null,
-        'draft' => null,
-        'schedule' => 'int32'
+        'contact' => null,
+        'type' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class UpdateSms implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'phone_id' => 'phoneId',
-        'detail_id' => 'detailId',
-        'message' => 'message',
-        'draft' => 'draft',
-        'schedule' => 'schedule'
+        'contact' => 'contact',
+        'type' => 'type'
     ];
 
     /**
@@ -117,11 +108,8 @@ class UpdateSms implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'phone_id' => 'setPhoneId',
-        'detail_id' => 'setDetailId',
-        'message' => 'setMessage',
-        'draft' => 'setDraft',
-        'schedule' => 'setSchedule'
+        'contact' => 'setContact',
+        'type' => 'setType'
     ];
 
     /**
@@ -130,11 +118,8 @@ class UpdateSms implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'phone_id' => 'getPhoneId',
-        'detail_id' => 'getDetailId',
-        'message' => 'getMessage',
-        'draft' => 'getDraft',
-        'schedule' => 'getSchedule'
+        'contact' => 'getContact',
+        'type' => 'getType'
     ];
 
     /**
@@ -197,11 +182,8 @@ class UpdateSms implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['phone_id'] = isset($data['phone_id']) ? $data['phone_id'] : null;
-        $this->container['detail_id'] = isset($data['detail_id']) ? $data['detail_id'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['draft'] = isset($data['draft']) ? $data['draft'] : null;
-        $this->container['schedule'] = isset($data['schedule']) ? $data['schedule'] : null;
+        $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -213,15 +195,6 @@ class UpdateSms implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['phone_id'] === null) {
-            $invalidProperties[] = "'phone_id' can't be null";
-        }
-        if ($this->container['detail_id'] === null) {
-            $invalidProperties[] = "'detail_id' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -238,121 +211,49 @@ class UpdateSms implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets phone_id
+     * Gets contact
      *
-     * @return string
+     * @return string|null
      */
-    public function getPhoneId()
+    public function getContact()
     {
-        return $this->container['phone_id'];
+        return $this->container['contact'];
     }
 
     /**
-     * Sets phone_id
+     * Sets contact
      *
-     * @param string $phone_id phone_id
+     * @param string|null $contact contact
      *
      * @return $this
      */
-    public function setPhoneId($phone_id)
+    public function setContact($contact)
     {
-        $this->container['phone_id'] = $phone_id;
+        $this->container['contact'] = $contact;
 
         return $this;
     }
 
     /**
-     * Gets detail_id
+     * Gets type
      *
-     * @return string
+     * @return string|null
      */
-    public function getDetailId()
+    public function getType()
     {
-        return $this->container['detail_id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets detail_id
+     * Sets type
      *
-     * @param string $detail_id detail_id
+     * @param string|null $type type
      *
      * @return $this
      */
-    public function setDetailId($detail_id)
+    public function setType($type)
     {
-        $this->container['detail_id'] = $detail_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets draft
-     *
-     * @return bool|null
-     */
-    public function getDraft()
-    {
-        return $this->container['draft'];
-    }
-
-    /**
-     * Sets draft
-     *
-     * @param bool|null $draft draft
-     *
-     * @return $this
-     */
-    public function setDraft($draft)
-    {
-        $this->container['draft'] = $draft;
-
-        return $this;
-    }
-
-    /**
-     * Gets schedule
-     *
-     * @return int|null
-     */
-    public function getSchedule()
-    {
-        return $this->container['schedule'];
-    }
-
-    /**
-     * Sets schedule
-     *
-     * @param int|null $schedule schedule
-     *
-     * @return $this
-     */
-    public function setSchedule($schedule)
-    {
-        $this->container['schedule'] = $schedule;
+        $this->container['type'] = $type;
 
         return $this;
     }

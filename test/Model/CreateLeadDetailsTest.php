@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateLeadContactsTest
+ * CreateLeadDetailsTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace OpenAPI\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateLeadContactsTest Class Doc Comment
+ * CreateLeadDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description CreateLeadContacts
+ * @description CreateLeadDetails
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateLeadContactsTest extends TestCase
+class CreateLeadDetailsTest extends TestCase
 {
 
     /**
@@ -72,30 +72,23 @@ class CreateLeadContactsTest extends TestCase
     }
 
     /**
-     * Test "CreateLeadContacts"
+     * Test "CreateLeadDetails"
      */
-    public function testCreateLeadContacts()
+    public function testCreateLeadDetails()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "contact"
      */
-    public function testPropertyName()
+    public function testPropertyContact()
     {
     }
 
     /**
-     * Test attribute "title"
+     * Test attribute "type"
      */
-    public function testPropertyTitle()
-    {
-    }
-
-    /**
-     * Test attribute "details"
-     */
-    public function testPropertyDetails()
+    public function testPropertyType()
     {
     }
 }

@@ -62,7 +62,8 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
         'assignee' => 'string',
         'confidence' => 'int',
         'contact' => 'string',
-        'comment' => 'Text'
+        'comment' => 'string',
+        'value_type' => 'string'
     ];
 
     /**
@@ -76,7 +77,8 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
         'assignee' => null,
         'confidence' => 'int32',
         'contact' => null,
-        'comment' => null
+        'comment' => null,
+        'value_type' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
         'assignee' => 'assignee',
         'confidence' => 'confidence',
         'contact' => 'contact',
-        'comment' => 'comment'
+        'comment' => 'comment',
+        'value_type' => 'value_type'
     ];
 
     /**
@@ -125,7 +128,8 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
         'assignee' => 'setAssignee',
         'confidence' => 'setConfidence',
         'contact' => 'setContact',
-        'comment' => 'setComment'
+        'comment' => 'setComment',
+        'value_type' => 'setValueType'
     ];
 
     /**
@@ -139,7 +143,8 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
         'assignee' => 'getAssignee',
         'confidence' => 'getConfidence',
         'contact' => 'getContact',
-        'comment' => 'getComment'
+        'comment' => 'getComment',
+        'value_type' => 'getValueType'
     ];
 
     /**
@@ -208,6 +213,7 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
         $this->container['confidence'] = isset($data['confidence']) ? $data['confidence'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
         $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['value_type'] = isset($data['value_type']) ? $data['value_type'] : null;
     }
 
     /**
@@ -357,7 +363,7 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
     /**
      * Gets comment
      *
-     * @return Text|null
+     * @return string|null
      */
     public function getComment()
     {
@@ -367,13 +373,37 @@ class UpdateOpportunity implements ModelInterface, ArrayAccess
     /**
      * Sets comment
      *
-     * @param Text|null $comment comment
+     * @param string|null $comment comment
      *
      * @return $this
      */
     public function setComment($comment)
     {
         $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets value_type
+     *
+     * @return string|null
+     */
+    public function getValueType()
+    {
+        return $this->container['value_type'];
+    }
+
+    /**
+     * Sets value_type
+     *
+     * @param string|null $value_type value_type
+     *
+     * @return $this
+     */
+    public function setValueType($value_type)
+    {
+        $this->container['value_type'] = $value_type;
 
         return $this;
     }

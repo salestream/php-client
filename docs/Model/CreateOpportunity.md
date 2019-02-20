@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **assignee** | **string** |  | 
 **confidence** | **int** |  | 
 **contact** | **string** |  | [optional] 
-**comment** | [**Text**](Text.md) |  | [optional] 
+**comment** | **string** |  | [optional] 
+**value_type** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

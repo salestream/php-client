@@ -91,17 +91,15 @@ class TaskApi
      * Operation leadIdTaskPost
      *
      * @param  string $id lead id (required)
-     * @param  int $date date (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $desc desc (optional)
+     * @param  \OpenAPI\Client\Model\CreateTask $create_task create_task (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdTaskPost($id, $date, $user_id, $desc = null)
+    public function leadIdTaskPost($id, $create_task = null)
     {
-        list($response) = $this->leadIdTaskPostWithHttpInfo($id, $date, $user_id, $desc);
+        list($response) = $this->leadIdTaskPostWithHttpInfo($id, $create_task);
         return $response;
     }
 
@@ -109,17 +107,15 @@ class TaskApi
      * Operation leadIdTaskPostWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  int $date (required)
-     * @param  string $user_id (required)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\CreateTask $create_task (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdTaskPostWithHttpInfo($id, $date, $user_id, $desc = null)
+    public function leadIdTaskPostWithHttpInfo($id, $create_task = null)
     {
-        $request = $this->leadIdTaskPostRequest($id, $date, $user_id, $desc);
+        $request = $this->leadIdTaskPostRequest($id, $create_task);
 
         try {
             $options = $this->createHttpClientOption();
@@ -240,16 +236,14 @@ class TaskApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  int $date (required)
-     * @param  string $user_id (required)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\CreateTask $create_task (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdTaskPostAsync($id, $date, $user_id, $desc = null)
+    public function leadIdTaskPostAsync($id, $create_task = null)
     {
-        return $this->leadIdTaskPostAsyncWithHttpInfo($id, $date, $user_id, $desc)
+        return $this->leadIdTaskPostAsyncWithHttpInfo($id, $create_task)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -263,17 +257,15 @@ class TaskApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  int $date (required)
-     * @param  string $user_id (required)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\CreateTask $create_task (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdTaskPostAsyncWithHttpInfo($id, $date, $user_id, $desc = null)
+    public function leadIdTaskPostAsyncWithHttpInfo($id, $create_task = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdTaskPostRequest($id, $date, $user_id, $desc);
+        $request = $this->leadIdTaskPostRequest($id, $create_task);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -313,31 +305,17 @@ class TaskApi
      * Create request for operation 'leadIdTaskPost'
      *
      * @param  string $id lead id (required)
-     * @param  int $date (required)
-     * @param  string $user_id (required)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\CreateTask $create_task (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdTaskPostRequest($id, $date, $user_id, $desc = null)
+    protected function leadIdTaskPostRequest($id, $create_task = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling leadIdTaskPost'
-            );
-        }
-        // verify the required parameter 'date' is set
-        if ($date === null || (is_array($date) && count($date) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $date when calling leadIdTaskPost'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling leadIdTaskPost'
             );
         }
 
@@ -358,20 +336,11 @@ class TaskApi
             );
         }
 
-        // form params
-        if ($date !== null) {
-            $formParams['date'] = ObjectSerializer::toFormValue($date);
-        }
-        // form params
-        if ($user_id !== null) {
-            $formParams['userId'] = ObjectSerializer::toFormValue($user_id);
-        }
-        // form params
-        if ($desc !== null) {
-            $formParams['desc'] = ObjectSerializer::toFormValue($desc);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_task)) {
+            $_tempBody = $create_task;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -380,7 +349,7 @@ class TaskApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -776,17 +745,15 @@ class TaskApi
      *
      * @param  string $id lead id (required)
      * @param  string $task_id task id (required)
-     * @param  int $date date (optional)
-     * @param  string $user_id user_id (optional)
-     * @param  string $desc desc (optional)
+     * @param  \OpenAPI\Client\Model\UpdateTask $update_task update_task (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdTaskTaskIdPut($id, $task_id, $date = null, $user_id = null, $desc = null)
+    public function leadIdTaskTaskIdPut($id, $task_id, $update_task = null)
     {
-        list($response) = $this->leadIdTaskTaskIdPutWithHttpInfo($id, $task_id, $date, $user_id, $desc);
+        list($response) = $this->leadIdTaskTaskIdPutWithHttpInfo($id, $task_id, $update_task);
         return $response;
     }
 
@@ -795,17 +762,15 @@ class TaskApi
      *
      * @param  string $id lead id (required)
      * @param  string $task_id task id (required)
-     * @param  int $date (optional)
-     * @param  string $user_id (optional)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\UpdateTask $update_task (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdTaskTaskIdPutWithHttpInfo($id, $task_id, $date = null, $user_id = null, $desc = null)
+    public function leadIdTaskTaskIdPutWithHttpInfo($id, $task_id, $update_task = null)
     {
-        $request = $this->leadIdTaskTaskIdPutRequest($id, $task_id, $date, $user_id, $desc);
+        $request = $this->leadIdTaskTaskIdPutRequest($id, $task_id, $update_task);
 
         try {
             $options = $this->createHttpClientOption();
@@ -927,16 +892,14 @@ class TaskApi
      *
      * @param  string $id lead id (required)
      * @param  string $task_id task id (required)
-     * @param  int $date (optional)
-     * @param  string $user_id (optional)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\UpdateTask $update_task (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdTaskTaskIdPutAsync($id, $task_id, $date = null, $user_id = null, $desc = null)
+    public function leadIdTaskTaskIdPutAsync($id, $task_id, $update_task = null)
     {
-        return $this->leadIdTaskTaskIdPutAsyncWithHttpInfo($id, $task_id, $date, $user_id, $desc)
+        return $this->leadIdTaskTaskIdPutAsyncWithHttpInfo($id, $task_id, $update_task)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -951,17 +914,15 @@ class TaskApi
      *
      * @param  string $id lead id (required)
      * @param  string $task_id task id (required)
-     * @param  int $date (optional)
-     * @param  string $user_id (optional)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\UpdateTask $update_task (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdTaskTaskIdPutAsyncWithHttpInfo($id, $task_id, $date = null, $user_id = null, $desc = null)
+    public function leadIdTaskTaskIdPutAsyncWithHttpInfo($id, $task_id, $update_task = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdTaskTaskIdPutRequest($id, $task_id, $date, $user_id, $desc);
+        $request = $this->leadIdTaskTaskIdPutRequest($id, $task_id, $update_task);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1002,14 +963,12 @@ class TaskApi
      *
      * @param  string $id lead id (required)
      * @param  string $task_id task id (required)
-     * @param  int $date (optional)
-     * @param  string $user_id (optional)
-     * @param  string $desc (optional)
+     * @param  \OpenAPI\Client\Model\UpdateTask $update_task (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdTaskTaskIdPutRequest($id, $task_id, $date = null, $user_id = null, $desc = null)
+    protected function leadIdTaskTaskIdPutRequest($id, $task_id, $update_task = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1049,20 +1008,11 @@ class TaskApi
             );
         }
 
-        // form params
-        if ($date !== null) {
-            $formParams['date'] = ObjectSerializer::toFormValue($date);
-        }
-        // form params
-        if ($user_id !== null) {
-            $formParams['userId'] = ObjectSerializer::toFormValue($user_id);
-        }
-        // form params
-        if ($desc !== null) {
-            $formParams['desc'] = ObjectSerializer::toFormValue($desc);
-        }
         // body params
         $_tempBody = null;
+        if (isset($update_task)) {
+            $_tempBody = $update_task;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1071,7 +1021,7 @@ class TaskApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 

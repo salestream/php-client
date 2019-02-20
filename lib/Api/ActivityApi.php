@@ -424,24 +424,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $email_id email id (required)
-     * @param  string $email_id email_id (optional)
-     * @param  string[] $to to (optional)
-     * @param  string[] $cc cc (optional)
-     * @param  string[] $bcc bcc (optional)
-     * @param  string $subject subject (optional)
-     * @param  string $message message (optional)
-     * @param  bool $draft draft (optional)
-     * @param  bool $reminder_enabled reminder_enabled (optional)
-     * @param  int $reminder_date reminder_date (optional)
-     * @param  int $schedule schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateEmail $update_email update_email (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdActivityEmailEmailIdPut($id, $email_id, $email_id = null, $to = null, $cc = null, $bcc = null, $subject = null, $message = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailEmailIdPut($id, $email_id, $update_email = null)
     {
-        list($response) = $this->leadIdActivityEmailEmailIdPutWithHttpInfo($id, $email_id, $email_id, $to, $cc, $bcc, $subject, $message, $draft, $reminder_enabled, $reminder_date, $schedule);
+        list($response) = $this->leadIdActivityEmailEmailIdPutWithHttpInfo($id, $email_id, $update_email);
         return $response;
     }
 
@@ -450,24 +441,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $email_id email id (required)
-     * @param  string $email_id (optional)
-     * @param  string[] $to (optional)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  string $subject (optional)
-     * @param  string $message (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateEmail $update_email (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdActivityEmailEmailIdPutWithHttpInfo($id, $email_id, $email_id = null, $to = null, $cc = null, $bcc = null, $subject = null, $message = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailEmailIdPutWithHttpInfo($id, $email_id, $update_email = null)
     {
-        $request = $this->leadIdActivityEmailEmailIdPutRequest($id, $email_id, $email_id, $to, $cc, $bcc, $subject, $message, $draft, $reminder_enabled, $reminder_date, $schedule);
+        $request = $this->leadIdActivityEmailEmailIdPutRequest($id, $email_id, $update_email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -589,23 +571,14 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $email_id email id (required)
-     * @param  string $email_id (optional)
-     * @param  string[] $to (optional)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  string $subject (optional)
-     * @param  string $message (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateEmail $update_email (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityEmailEmailIdPutAsync($id, $email_id, $email_id = null, $to = null, $cc = null, $bcc = null, $subject = null, $message = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailEmailIdPutAsync($id, $email_id, $update_email = null)
     {
-        return $this->leadIdActivityEmailEmailIdPutAsyncWithHttpInfo($id, $email_id, $email_id, $to, $cc, $bcc, $subject, $message, $draft, $reminder_enabled, $reminder_date, $schedule)
+        return $this->leadIdActivityEmailEmailIdPutAsyncWithHttpInfo($id, $email_id, $update_email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -620,24 +593,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $email_id email id (required)
-     * @param  string $email_id (optional)
-     * @param  string[] $to (optional)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  string $subject (optional)
-     * @param  string $message (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateEmail $update_email (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityEmailEmailIdPutAsyncWithHttpInfo($id, $email_id, $email_id = null, $to = null, $cc = null, $bcc = null, $subject = null, $message = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailEmailIdPutAsyncWithHttpInfo($id, $email_id, $update_email = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdActivityEmailEmailIdPutRequest($id, $email_id, $email_id, $to, $cc, $bcc, $subject, $message, $draft, $reminder_enabled, $reminder_date, $schedule);
+        $request = $this->leadIdActivityEmailEmailIdPutRequest($id, $email_id, $update_email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -678,21 +642,12 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $email_id email id (required)
-     * @param  string $email_id (optional)
-     * @param  string[] $to (optional)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  string $subject (optional)
-     * @param  string $message (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateEmail $update_email (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdActivityEmailEmailIdPutRequest($id, $email_id, $email_id = null, $to = null, $cc = null, $bcc = null, $subject = null, $message = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    protected function leadIdActivityEmailEmailIdPutRequest($id, $email_id, $update_email = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -732,48 +687,11 @@ class ActivityApi
             );
         }
 
-        // form params
-        if ($email_id !== null) {
-            $formParams['emailId'] = ObjectSerializer::toFormValue($email_id);
-        }
-        // form params
-        if ($to !== null) {
-            $formParams['to'] = ObjectSerializer::toFormValue($to);
-        }
-        // form params
-        if ($cc !== null) {
-            $formParams['cc'] = ObjectSerializer::toFormValue($cc);
-        }
-        // form params
-        if ($bcc !== null) {
-            $formParams['bcc'] = ObjectSerializer::toFormValue($bcc);
-        }
-        // form params
-        if ($subject !== null) {
-            $formParams['subject'] = ObjectSerializer::toFormValue($subject);
-        }
-        // form params
-        if ($message !== null) {
-            $formParams['message'] = ObjectSerializer::toFormValue($message);
-        }
-        // form params
-        if ($draft !== null) {
-            $formParams['draft'] = ObjectSerializer::toFormValue($draft);
-        }
-        // form params
-        if ($reminder_enabled !== null) {
-            $formParams['reminderEnabled'] = ObjectSerializer::toFormValue($reminder_enabled);
-        }
-        // form params
-        if ($reminder_date !== null) {
-            $formParams['reminderDate'] = ObjectSerializer::toFormValue($reminder_date);
-        }
-        // form params
-        if ($schedule !== null) {
-            $formParams['schedule'] = ObjectSerializer::toFormValue($schedule);
-        }
         // body params
         $_tempBody = null;
+        if (isset($update_email)) {
+            $_tempBody = $update_email;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -782,7 +700,7 @@ class ActivityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -845,24 +763,15 @@ class ActivityApi
      * Operation leadIdActivityEmailPost
      *
      * @param  string $id lead id (required)
-     * @param  string $email_id email_id (required)
-     * @param  string[] $to to (required)
-     * @param  string $subject subject (required)
-     * @param  string $message message (required)
-     * @param  string[] $cc cc (optional)
-     * @param  string[] $bcc bcc (optional)
-     * @param  bool $draft draft (optional)
-     * @param  bool $reminder_enabled reminder_enabled (optional)
-     * @param  int $reminder_date reminder_date (optional)
-     * @param  int $schedule schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateEmail $create_email create_email (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdActivityEmailPost($id, $email_id, $to, $subject, $message, $cc = null, $bcc = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailPost($id, $create_email = null)
     {
-        list($response) = $this->leadIdActivityEmailPostWithHttpInfo($id, $email_id, $to, $subject, $message, $cc, $bcc, $draft, $reminder_enabled, $reminder_date, $schedule);
+        list($response) = $this->leadIdActivityEmailPostWithHttpInfo($id, $create_email);
         return $response;
     }
 
@@ -870,24 +779,15 @@ class ActivityApi
      * Operation leadIdActivityEmailPostWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  string $email_id (required)
-     * @param  string[] $to (required)
-     * @param  string $subject (required)
-     * @param  string $message (required)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateEmail $create_email (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdActivityEmailPostWithHttpInfo($id, $email_id, $to, $subject, $message, $cc = null, $bcc = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailPostWithHttpInfo($id, $create_email = null)
     {
-        $request = $this->leadIdActivityEmailPostRequest($id, $email_id, $to, $subject, $message, $cc, $bcc, $draft, $reminder_enabled, $reminder_date, $schedule);
+        $request = $this->leadIdActivityEmailPostRequest($id, $create_email);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1008,23 +908,14 @@ class ActivityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $email_id (required)
-     * @param  string[] $to (required)
-     * @param  string $subject (required)
-     * @param  string $message (required)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateEmail $create_email (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityEmailPostAsync($id, $email_id, $to, $subject, $message, $cc = null, $bcc = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailPostAsync($id, $create_email = null)
     {
-        return $this->leadIdActivityEmailPostAsyncWithHttpInfo($id, $email_id, $to, $subject, $message, $cc, $bcc, $draft, $reminder_enabled, $reminder_date, $schedule)
+        return $this->leadIdActivityEmailPostAsyncWithHttpInfo($id, $create_email)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1038,24 +929,15 @@ class ActivityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $email_id (required)
-     * @param  string[] $to (required)
-     * @param  string $subject (required)
-     * @param  string $message (required)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateEmail $create_email (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityEmailPostAsyncWithHttpInfo($id, $email_id, $to, $subject, $message, $cc = null, $bcc = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    public function leadIdActivityEmailPostAsyncWithHttpInfo($id, $create_email = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdActivityEmailPostRequest($id, $email_id, $to, $subject, $message, $cc, $bcc, $draft, $reminder_enabled, $reminder_date, $schedule);
+        $request = $this->leadIdActivityEmailPostRequest($id, $create_email);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1095,50 +977,17 @@ class ActivityApi
      * Create request for operation 'leadIdActivityEmailPost'
      *
      * @param  string $id lead id (required)
-     * @param  string $email_id (required)
-     * @param  string[] $to (required)
-     * @param  string $subject (required)
-     * @param  string $message (required)
-     * @param  string[] $cc (optional)
-     * @param  string[] $bcc (optional)
-     * @param  bool $draft (optional)
-     * @param  bool $reminder_enabled (optional)
-     * @param  int $reminder_date (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateEmail $create_email (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdActivityEmailPostRequest($id, $email_id, $to, $subject, $message, $cc = null, $bcc = null, $draft = null, $reminder_enabled = null, $reminder_date = null, $schedule = null)
+    protected function leadIdActivityEmailPostRequest($id, $create_email = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling leadIdActivityEmailPost'
-            );
-        }
-        // verify the required parameter 'email_id' is set
-        if ($email_id === null || (is_array($email_id) && count($email_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $email_id when calling leadIdActivityEmailPost'
-            );
-        }
-        // verify the required parameter 'to' is set
-        if ($to === null || (is_array($to) && count($to) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $to when calling leadIdActivityEmailPost'
-            );
-        }
-        // verify the required parameter 'subject' is set
-        if ($subject === null || (is_array($subject) && count($subject) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $subject when calling leadIdActivityEmailPost'
-            );
-        }
-        // verify the required parameter 'message' is set
-        if ($message === null || (is_array($message) && count($message) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $message when calling leadIdActivityEmailPost'
             );
         }
 
@@ -1159,48 +1008,11 @@ class ActivityApi
             );
         }
 
-        // form params
-        if ($email_id !== null) {
-            $formParams['emailId'] = ObjectSerializer::toFormValue($email_id);
-        }
-        // form params
-        if ($to !== null) {
-            $formParams['to'] = ObjectSerializer::toFormValue($to);
-        }
-        // form params
-        if ($cc !== null) {
-            $formParams['cc'] = ObjectSerializer::toFormValue($cc);
-        }
-        // form params
-        if ($bcc !== null) {
-            $formParams['bcc'] = ObjectSerializer::toFormValue($bcc);
-        }
-        // form params
-        if ($subject !== null) {
-            $formParams['subject'] = ObjectSerializer::toFormValue($subject);
-        }
-        // form params
-        if ($message !== null) {
-            $formParams['message'] = ObjectSerializer::toFormValue($message);
-        }
-        // form params
-        if ($draft !== null) {
-            $formParams['draft'] = ObjectSerializer::toFormValue($draft);
-        }
-        // form params
-        if ($reminder_enabled !== null) {
-            $formParams['reminderEnabled'] = ObjectSerializer::toFormValue($reminder_enabled);
-        }
-        // form params
-        if ($reminder_date !== null) {
-            $formParams['reminderDate'] = ObjectSerializer::toFormValue($reminder_date);
-        }
-        // form params
-        if ($schedule !== null) {
-            $formParams['schedule'] = ObjectSerializer::toFormValue($schedule);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_email)) {
+            $_tempBody = $create_email;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1209,7 +1021,7 @@ class ActivityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -1936,15 +1748,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $note_id note id (required)
-     * @param  string $note note (optional)
+     * @param  \OpenAPI\Client\Model\UpdateNote $update_note update_note (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdActivityNoteNoteIdPut($id, $note_id, $note = null)
+    public function leadIdActivityNoteNoteIdPut($id, $note_id, $update_note = null)
     {
-        list($response) = $this->leadIdActivityNoteNoteIdPutWithHttpInfo($id, $note_id, $note);
+        list($response) = $this->leadIdActivityNoteNoteIdPutWithHttpInfo($id, $note_id, $update_note);
         return $response;
     }
 
@@ -1953,15 +1765,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $note_id note id (required)
-     * @param  string $note (optional)
+     * @param  \OpenAPI\Client\Model\UpdateNote $update_note (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdActivityNoteNoteIdPutWithHttpInfo($id, $note_id, $note = null)
+    public function leadIdActivityNoteNoteIdPutWithHttpInfo($id, $note_id, $update_note = null)
     {
-        $request = $this->leadIdActivityNoteNoteIdPutRequest($id, $note_id, $note);
+        $request = $this->leadIdActivityNoteNoteIdPutRequest($id, $note_id, $update_note);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2083,14 +1895,14 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $note_id note id (required)
-     * @param  string $note (optional)
+     * @param  \OpenAPI\Client\Model\UpdateNote $update_note (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityNoteNoteIdPutAsync($id, $note_id, $note = null)
+    public function leadIdActivityNoteNoteIdPutAsync($id, $note_id, $update_note = null)
     {
-        return $this->leadIdActivityNoteNoteIdPutAsyncWithHttpInfo($id, $note_id, $note)
+        return $this->leadIdActivityNoteNoteIdPutAsyncWithHttpInfo($id, $note_id, $update_note)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2105,15 +1917,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $note_id note id (required)
-     * @param  string $note (optional)
+     * @param  \OpenAPI\Client\Model\UpdateNote $update_note (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityNoteNoteIdPutAsyncWithHttpInfo($id, $note_id, $note = null)
+    public function leadIdActivityNoteNoteIdPutAsyncWithHttpInfo($id, $note_id, $update_note = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdActivityNoteNoteIdPutRequest($id, $note_id, $note);
+        $request = $this->leadIdActivityNoteNoteIdPutRequest($id, $note_id, $update_note);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2154,12 +1966,12 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $note_id note id (required)
-     * @param  string $note (optional)
+     * @param  \OpenAPI\Client\Model\UpdateNote $update_note (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdActivityNoteNoteIdPutRequest($id, $note_id, $note = null)
+    protected function leadIdActivityNoteNoteIdPutRequest($id, $note_id, $update_note = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2199,12 +2011,11 @@ class ActivityApi
             );
         }
 
-        // form params
-        if ($note !== null) {
-            $formParams['note'] = ObjectSerializer::toFormValue($note);
-        }
         // body params
         $_tempBody = null;
+        if (isset($update_note)) {
+            $_tempBody = $update_note;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2213,7 +2024,7 @@ class ActivityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -2276,15 +2087,15 @@ class ActivityApi
      * Operation leadIdActivityNotePost
      *
      * @param  string $id lead id (required)
-     * @param  string $note note (required)
+     * @param  \OpenAPI\Client\Model\CreateNote $create_note create_note (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdActivityNotePost($id, $note)
+    public function leadIdActivityNotePost($id, $create_note = null)
     {
-        list($response) = $this->leadIdActivityNotePostWithHttpInfo($id, $note);
+        list($response) = $this->leadIdActivityNotePostWithHttpInfo($id, $create_note);
         return $response;
     }
 
@@ -2292,15 +2103,15 @@ class ActivityApi
      * Operation leadIdActivityNotePostWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  string $note (required)
+     * @param  \OpenAPI\Client\Model\CreateNote $create_note (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdActivityNotePostWithHttpInfo($id, $note)
+    public function leadIdActivityNotePostWithHttpInfo($id, $create_note = null)
     {
-        $request = $this->leadIdActivityNotePostRequest($id, $note);
+        $request = $this->leadIdActivityNotePostRequest($id, $create_note);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2421,14 +2232,14 @@ class ActivityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $note (required)
+     * @param  \OpenAPI\Client\Model\CreateNote $create_note (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityNotePostAsync($id, $note)
+    public function leadIdActivityNotePostAsync($id, $create_note = null)
     {
-        return $this->leadIdActivityNotePostAsyncWithHttpInfo($id, $note)
+        return $this->leadIdActivityNotePostAsyncWithHttpInfo($id, $create_note)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2442,15 +2253,15 @@ class ActivityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $note (required)
+     * @param  \OpenAPI\Client\Model\CreateNote $create_note (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivityNotePostAsyncWithHttpInfo($id, $note)
+    public function leadIdActivityNotePostAsyncWithHttpInfo($id, $create_note = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdActivityNotePostRequest($id, $note);
+        $request = $this->leadIdActivityNotePostRequest($id, $create_note);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2490,23 +2301,17 @@ class ActivityApi
      * Create request for operation 'leadIdActivityNotePost'
      *
      * @param  string $id lead id (required)
-     * @param  string $note (required)
+     * @param  \OpenAPI\Client\Model\CreateNote $create_note (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdActivityNotePostRequest($id, $note)
+    protected function leadIdActivityNotePostRequest($id, $create_note = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling leadIdActivityNotePost'
-            );
-        }
-        // verify the required parameter 'note' is set
-        if ($note === null || (is_array($note) && count($note) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $note when calling leadIdActivityNotePost'
             );
         }
 
@@ -2527,12 +2332,11 @@ class ActivityApi
             );
         }
 
-        // form params
-        if ($note !== null) {
-            $formParams['note'] = ObjectSerializer::toFormValue($note);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_note)) {
+            $_tempBody = $create_note;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2541,7 +2345,7 @@ class ActivityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -2604,19 +2408,15 @@ class ActivityApi
      * Operation leadIdActivitySmsPost
      *
      * @param  string $id lead id (required)
-     * @param  string $phone_id phone_id (optional)
-     * @param  string $detail_id detail_id (optional)
-     * @param  Text $message message (optional)
-     * @param  bool $draft draft (optional)
-     * @param  int $schedule schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateSms $create_sms create_sms (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdActivitySmsPost($id, $phone_id = null, $detail_id = null, $message = null, $draft = null, $schedule = null)
+    public function leadIdActivitySmsPost($id, $create_sms = null)
     {
-        list($response) = $this->leadIdActivitySmsPostWithHttpInfo($id, $phone_id, $detail_id, $message, $draft, $schedule);
+        list($response) = $this->leadIdActivitySmsPostWithHttpInfo($id, $create_sms);
         return $response;
     }
 
@@ -2624,19 +2424,15 @@ class ActivityApi
      * Operation leadIdActivitySmsPostWithHttpInfo
      *
      * @param  string $id lead id (required)
-     * @param  string $phone_id (optional)
-     * @param  string $detail_id (optional)
-     * @param  Text $message (optional)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateSms $create_sms (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdActivitySmsPostWithHttpInfo($id, $phone_id = null, $detail_id = null, $message = null, $draft = null, $schedule = null)
+    public function leadIdActivitySmsPostWithHttpInfo($id, $create_sms = null)
     {
-        $request = $this->leadIdActivitySmsPostRequest($id, $phone_id, $detail_id, $message, $draft, $schedule);
+        $request = $this->leadIdActivitySmsPostRequest($id, $create_sms);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2757,18 +2553,14 @@ class ActivityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $phone_id (optional)
-     * @param  string $detail_id (optional)
-     * @param  Text $message (optional)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateSms $create_sms (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivitySmsPostAsync($id, $phone_id = null, $detail_id = null, $message = null, $draft = null, $schedule = null)
+    public function leadIdActivitySmsPostAsync($id, $create_sms = null)
     {
-        return $this->leadIdActivitySmsPostAsyncWithHttpInfo($id, $phone_id, $detail_id, $message, $draft, $schedule)
+        return $this->leadIdActivitySmsPostAsyncWithHttpInfo($id, $create_sms)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2782,19 +2574,15 @@ class ActivityApi
      * 
      *
      * @param  string $id lead id (required)
-     * @param  string $phone_id (optional)
-     * @param  string $detail_id (optional)
-     * @param  Text $message (optional)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateSms $create_sms (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivitySmsPostAsyncWithHttpInfo($id, $phone_id = null, $detail_id = null, $message = null, $draft = null, $schedule = null)
+    public function leadIdActivitySmsPostAsyncWithHttpInfo($id, $create_sms = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdActivitySmsPostRequest($id, $phone_id, $detail_id, $message, $draft, $schedule);
+        $request = $this->leadIdActivitySmsPostRequest($id, $create_sms);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2834,16 +2622,12 @@ class ActivityApi
      * Create request for operation 'leadIdActivitySmsPost'
      *
      * @param  string $id lead id (required)
-     * @param  string $phone_id (optional)
-     * @param  string $detail_id (optional)
-     * @param  Text $message (optional)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\CreateSms $create_sms (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdActivitySmsPostRequest($id, $phone_id = null, $detail_id = null, $message = null, $draft = null, $schedule = null)
+    protected function leadIdActivitySmsPostRequest($id, $create_sms = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2869,28 +2653,11 @@ class ActivityApi
             );
         }
 
-        // form params
-        if ($phone_id !== null) {
-            $formParams['phoneId'] = ObjectSerializer::toFormValue($phone_id);
-        }
-        // form params
-        if ($detail_id !== null) {
-            $formParams['detailId'] = ObjectSerializer::toFormValue($detail_id);
-        }
-        // form params
-        if ($message !== null) {
-            $formParams['message'] = ObjectSerializer::toFormValue($message);
-        }
-        // form params
-        if ($draft !== null) {
-            $formParams['draft'] = ObjectSerializer::toFormValue($draft);
-        }
-        // form params
-        if ($schedule !== null) {
-            $formParams['schedule'] = ObjectSerializer::toFormValue($schedule);
-        }
         // body params
         $_tempBody = null;
+        if (isset($create_sms)) {
+            $_tempBody = $create_sms;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2899,7 +2666,7 @@ class ActivityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 
@@ -3295,19 +3062,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $sms_id sms id (required)
-     * @param  string $phone_id phone_id (required)
-     * @param  string $detail_id detail_id (required)
-     * @param  Text $message message (required)
-     * @param  bool $draft draft (optional)
-     * @param  int $schedule schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateSms $update_sms update_sms (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse
      */
-    public function leadIdActivitySmsSmsIdPut($id, $sms_id, $phone_id, $detail_id, $message, $draft = null, $schedule = null)
+    public function leadIdActivitySmsSmsIdPut($id, $sms_id, $update_sms = null)
     {
-        list($response) = $this->leadIdActivitySmsSmsIdPutWithHttpInfo($id, $sms_id, $phone_id, $detail_id, $message, $draft, $schedule);
+        list($response) = $this->leadIdActivitySmsSmsIdPutWithHttpInfo($id, $sms_id, $update_sms);
         return $response;
     }
 
@@ -3316,19 +3079,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $sms_id sms id (required)
-     * @param  string $phone_id (required)
-     * @param  string $detail_id (required)
-     * @param  Text $message (required)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateSms $update_sms (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SuccessResponse|\OpenAPI\Client\Model\ErrorResponse|\OpenAPI\Client\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leadIdActivitySmsSmsIdPutWithHttpInfo($id, $sms_id, $phone_id, $detail_id, $message, $draft = null, $schedule = null)
+    public function leadIdActivitySmsSmsIdPutWithHttpInfo($id, $sms_id, $update_sms = null)
     {
-        $request = $this->leadIdActivitySmsSmsIdPutRequest($id, $sms_id, $phone_id, $detail_id, $message, $draft, $schedule);
+        $request = $this->leadIdActivitySmsSmsIdPutRequest($id, $sms_id, $update_sms);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3450,18 +3209,14 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $sms_id sms id (required)
-     * @param  string $phone_id (required)
-     * @param  string $detail_id (required)
-     * @param  Text $message (required)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateSms $update_sms (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivitySmsSmsIdPutAsync($id, $sms_id, $phone_id, $detail_id, $message, $draft = null, $schedule = null)
+    public function leadIdActivitySmsSmsIdPutAsync($id, $sms_id, $update_sms = null)
     {
-        return $this->leadIdActivitySmsSmsIdPutAsyncWithHttpInfo($id, $sms_id, $phone_id, $detail_id, $message, $draft, $schedule)
+        return $this->leadIdActivitySmsSmsIdPutAsyncWithHttpInfo($id, $sms_id, $update_sms)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3476,19 +3231,15 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $sms_id sms id (required)
-     * @param  string $phone_id (required)
-     * @param  string $detail_id (required)
-     * @param  Text $message (required)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateSms $update_sms (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leadIdActivitySmsSmsIdPutAsyncWithHttpInfo($id, $sms_id, $phone_id, $detail_id, $message, $draft = null, $schedule = null)
+    public function leadIdActivitySmsSmsIdPutAsyncWithHttpInfo($id, $sms_id, $update_sms = null)
     {
         $returnType = '\OpenAPI\Client\Model\SuccessResponse';
-        $request = $this->leadIdActivitySmsSmsIdPutRequest($id, $sms_id, $phone_id, $detail_id, $message, $draft, $schedule);
+        $request = $this->leadIdActivitySmsSmsIdPutRequest($id, $sms_id, $update_sms);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3529,16 +3280,12 @@ class ActivityApi
      *
      * @param  string $id lead id (required)
      * @param  string $sms_id sms id (required)
-     * @param  string $phone_id (required)
-     * @param  string $detail_id (required)
-     * @param  Text $message (required)
-     * @param  bool $draft (optional)
-     * @param  int $schedule (optional)
+     * @param  \OpenAPI\Client\Model\UpdateSms $update_sms (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function leadIdActivitySmsSmsIdPutRequest($id, $sms_id, $phone_id, $detail_id, $message, $draft = null, $schedule = null)
+    protected function leadIdActivitySmsSmsIdPutRequest($id, $sms_id, $update_sms = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -3550,24 +3297,6 @@ class ActivityApi
         if ($sms_id === null || (is_array($sms_id) && count($sms_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $sms_id when calling leadIdActivitySmsSmsIdPut'
-            );
-        }
-        // verify the required parameter 'phone_id' is set
-        if ($phone_id === null || (is_array($phone_id) && count($phone_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $phone_id when calling leadIdActivitySmsSmsIdPut'
-            );
-        }
-        // verify the required parameter 'detail_id' is set
-        if ($detail_id === null || (is_array($detail_id) && count($detail_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $detail_id when calling leadIdActivitySmsSmsIdPut'
-            );
-        }
-        // verify the required parameter 'message' is set
-        if ($message === null || (is_array($message) && count($message) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $message when calling leadIdActivitySmsSmsIdPut'
             );
         }
 
@@ -3596,28 +3325,11 @@ class ActivityApi
             );
         }
 
-        // form params
-        if ($phone_id !== null) {
-            $formParams['phoneId'] = ObjectSerializer::toFormValue($phone_id);
-        }
-        // form params
-        if ($detail_id !== null) {
-            $formParams['detailId'] = ObjectSerializer::toFormValue($detail_id);
-        }
-        // form params
-        if ($message !== null) {
-            $formParams['message'] = ObjectSerializer::toFormValue($message);
-        }
-        // form params
-        if ($draft !== null) {
-            $formParams['draft'] = ObjectSerializer::toFormValue($draft);
-        }
-        // form params
-        if ($schedule !== null) {
-            $formParams['schedule'] = ObjectSerializer::toFormValue($schedule);
-        }
         // body params
         $_tempBody = null;
+        if (isset($update_sms)) {
+            $_tempBody = $update_sms;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3626,7 +3338,7 @@ class ActivityApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/x-www-form-urlencoded', 'application/json']
+                ['application/json']
             );
         }
 

@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdOpportunityOpportunityIdPut**
-> \OpenAPI\Client\Model\SuccessResponse leadIdOpportunityOpportunityIdPut($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact, $comment)
+> \OpenAPI\Client\Model\SuccessResponse leadIdOpportunityOpportunityIdPut($id, $opportunity_id, $create_opportunity)
 
 
 
@@ -150,15 +150,10 @@ $apiInstance = new OpenAPI\Client\Api\LeadOpportunityApi(
 );
 $id = 'id_example'; // string | lead id
 $opportunity_id = 'opportunity_id_example'; // string | opportunity id
-$value = 56; // int | 
-$est_close_date = 56; // int | 
-$assignee = 'assignee_example'; // string | 
-$confidence = 56; // int | 
-$contact = 'contact_example'; // string | 
-$comment = new \OpenAPI\Client\Model\Text(); // Text | 
+$create_opportunity = new \OpenAPI\Client\Model\CreateOpportunity(); // \OpenAPI\Client\Model\CreateOpportunity | 
 
 try {
-    $result = $apiInstance->leadIdOpportunityOpportunityIdPut($id, $opportunity_id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+    $result = $apiInstance->leadIdOpportunityOpportunityIdPut($id, $opportunity_id, $create_opportunity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeadOpportunityApi->leadIdOpportunityOpportunityIdPut: ', $e->getMessage(), PHP_EOL;
@@ -172,12 +167,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
  **opportunity_id** | **string**| opportunity id |
- **value** | **int**|  |
- **est_close_date** | **int**|  |
- **assignee** | **string**|  |
- **confidence** | **int**|  |
- **contact** | **string**|  | [optional]
- **comment** | [**Text**](../Model/Text.md)|  | [optional]
+ **create_opportunity** | [**\OpenAPI\Client\Model\CreateOpportunity**](../Model/CreateOpportunity.md)|  | [optional]
 
 ### Return type
 
@@ -189,13 +179,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **leadIdOpportunityPost**
-> \OpenAPI\Client\Model\SuccessResponse leadIdOpportunityPost($id, $value, $est_close_date, $assignee, $confidence, $contact, $comment)
+> \OpenAPI\Client\Model\SuccessResponse leadIdOpportunityPost($id, $create_opportunity)
 
 
 
@@ -219,15 +209,10 @@ $apiInstance = new OpenAPI\Client\Api\LeadOpportunityApi(
     $config
 );
 $id = 'id_example'; // string | lead id
-$value = 56; // int | 
-$est_close_date = 56; // int | 
-$assignee = 'assignee_example'; // string | 
-$confidence = 56; // int | 
-$contact = 'contact_example'; // string | 
-$comment = new \OpenAPI\Client\Model\Text(); // Text | 
+$create_opportunity = new \OpenAPI\Client\Model\CreateOpportunity(); // \OpenAPI\Client\Model\CreateOpportunity | 
 
 try {
-    $result = $apiInstance->leadIdOpportunityPost($id, $value, $est_close_date, $assignee, $confidence, $contact, $comment);
+    $result = $apiInstance->leadIdOpportunityPost($id, $create_opportunity);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeadOpportunityApi->leadIdOpportunityPost: ', $e->getMessage(), PHP_EOL;
@@ -240,12 +225,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| lead id |
- **value** | **int**|  |
- **est_close_date** | **int**|  |
- **assignee** | **string**|  |
- **confidence** | **int**|  |
- **contact** | **string**|  | [optional]
- **comment** | [**Text**](../Model/Text.md)|  | [optional]
+ **create_opportunity** | [**\OpenAPI\Client\Model\CreateOpportunity**](../Model/CreateOpportunity.md)|  | [optional]
 
 ### Return type
 
@@ -257,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

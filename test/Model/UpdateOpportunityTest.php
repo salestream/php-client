@@ -119,4 +119,11 @@ class UpdateOpportunityTest extends TestCase
     public function testPropertyComment()
     {
     }
+
+    /**
+     * Test attribute "value_type"
+     */
+    public function testPropertyValueType()
+    {
+    }
 }
