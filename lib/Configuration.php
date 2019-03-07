@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://rest-dev.salestream.io/api/v1';
+    protected $host = 'https://api-us.salestream.io/api/v1';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -436,7 +436,7 @@ class Configuration
     {
         return array(
           array(
-            "url" => "https://rest-dev.salestream.io/api/v1",
+            "url" => "https://api-us.salestream.io/api/v1",
             "description" => "No description provided",
           )
         );
